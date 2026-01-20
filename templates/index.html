@@ -1,0 +1,76 @@
+{% extends 'layout/main.html' %}
+
+
+
+{% block title %}
+shopkart | online Shopping
+{% endblock title %}
+
+
+{% block style %}
+<style>
+    .card{
+        width:80%;
+    }
+    .hot{
+        position: absolute;
+        width:50px;
+        border-radius:5px;
+        background-color: red;
+        top:0;
+        right:0px;
+        text-align: center;
+        color:white;
+    }
+</style>
+{% endblock style %}
+
+
+{% block content %}
+{% include 'inc/slider.html' %}
+<div class="container" style="margin-top:70px;">
+    <div class="row">
+        <div class="col-12">
+            <div class="col-12">
+                <h4 class="mb-3">Latest Products</h4>
+                <hr style="border-color:#b8bfc2;">
+            </div>
+            <div class="container my-5">
+                  <div class="row g-4">
+             {% for item in products %}
+
+        <!-- Product Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm">
+                <div class="hot">Hot</div>
+
+                <img src="{{item.product_image.url}}"
+                     class="card-img-top img-fluid"
+                     alt="Product Image"
+                     style="height:200px; object-fit:contain;">
+
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-title fw-bold">
+                        {{ item.name}}
+                    </h6>
+                     <!-- <p class="card-text">{{item.description}}</p> -->
+                    <h5 class="text-success mb-3">
+                        RS.{{item.selling_price | stringformat:'d'}}
+                        <small class="text-muted text-decoration-line-through">
+                            Rs.{{item.original_price | stringformat:'d'}}
+                        </small>
+                    </h5>
+
+                    <a href="{% url 'product_details' item.catagory.name item.name %}" class="btn btn-primary mt-auto w-100">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        </div>
+         {% endfor %}
+         </div>
+         </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

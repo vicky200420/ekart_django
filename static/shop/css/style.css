@@ -1,0 +1,31 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
+
+html{
+    font-size: 14px;
+}
+a{
+    text-decoration: none;
+}
+body{
+    font-family: "Atkinson Hyperlegible Mono", sans-serif;
+}
+
+.carousel-item img{
+    object-fit: cover;
+    object-position: top;
+    height: 60vh;
+    overflow: hidden;
+}
+/* .card-text{
+    text-align:right;
+} */
+/* .card{
+    width:50%;
+} */
+.new_price{
+    font-weight:bold;
+    background-color: green;
+    color:white;
+    padding:2px;
+}

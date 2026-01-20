@@ -1,0 +1,80 @@
+{% extends 'layout/main.html' %}
+
+
+
+{% block title %}
+shopkart | online Shopping
+{% endblock title %}
+
+{% block style %}
+<style>
+    .card{
+        width: 80%;
+    }
+    .new_price{
+    font-weight:bold;
+    background-color: green;
+    color:white;
+    padding:2px;
+    border-radius: 5px;
+}
+    .old_price{
+        font-weight:bold;
+        color:red;
+    }
+
+</style>
+{% endblock style %}
+
+{% block content %}
+
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">{{catagory_name}} Products</h4>
+                <hr style="border-color:#b8bfc2;">
+                {% include 'inc/message.html' %}
+            </div>
+                  <div class="container my-5">
+                <div class="row g-4">
+                    {% for item in products %}
+
+        <!-- Product Card -->
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+            <div class="card h-100 shadow-sm">
+
+                <img src="{{item.product_image.url}}"
+                     class="card-img-top img-fluid"
+                     alt="Product Image"
+                     style="height:200px; object-fit: contain;">
+
+                <div class="card-body d-flex flex-column">
+                    <h6 class="card-title fw-bold">
+                        {{ item.name}}
+                    </h6>
+                     <!-- <p class="card-text">{{item.description}}</p> -->
+                    <h5 class="text-success mb-3">
+                        RS.{{item.selling_price | stringformat:'d'}}
+                        <small class="text-muted text-decoration-line-through">
+                            Rs.{{item.original_price | stringformat:'d'}}
+                        </small>
+                    </h5>
+
+                    <a href="{% url 'product_details' catagory_name item.name %}" class="btn btn-primary mt-auto w-100">
+                        View Details
+                    </a>
+                </div>
+            </div>
+        </div>
+         {% endfor %}
+        <!-- Duplicate this card for more products -->
+
+    </div>
+</div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock content %}
