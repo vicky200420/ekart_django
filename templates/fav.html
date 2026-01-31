@@ -42,8 +42,6 @@ Register | shopkart
             <td><img src="{{item.product.product_image.url}}" height="75px" alt="{{item.product.name}}"></td>
             <td>{{item.product.name}}</td>
             <td>{{item.product.selling_price | stringformat:'d'}}</td>
-            <td>{{item.product_qty}}</td>
-            <td class="amt">{{item.total_cost | stringformat:'d'}}</td>
             <td><a href="{% url 'delete_fav' item.id %}" onclick="return confirm('Are you Sure? to Remove')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>Remove</a></td>
         </tr>
          {% endfor %}
