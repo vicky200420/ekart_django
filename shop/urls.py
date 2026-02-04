@@ -18,5 +18,7 @@ urlpatterns = [
     path('addtocard',addtocard,name='addtocard'),
     path('place-order/',place_order, name='place_order'),
     path('my-orders/', my_orders, name='my_orders'),
+    path('cancel-order/<int:order_id>/',cancel_order, name='cancel_order'),
+
 
 ]

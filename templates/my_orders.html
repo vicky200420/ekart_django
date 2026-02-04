@@ -79,6 +79,20 @@ shopkart | online Shopping
             color: #888;
             margin-top: 50px;
         }
+        .cancel-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .cancel-btn:hover {
+            background: darkred;
+        }
+
     </style>
 {% endblock style %}
 
@@ -104,6 +118,12 @@ shopkart | online Shopping
             <p><strong>Total Amount:</strong> ₹{{ order.total_price }}</p>
             <p><strong>Order Date:</strong> {{ order.created_at|date:"d M Y, h:i A" }}</p>
         </div>
+        {% if order.status == "Pending" %}
+        <form method="POST" action="{% url 'cancel_order' order.id %}">
+            {% csrf_token %}
+            <button class="cancel-btn">Cancel Order</button>
+        </form>
+        {% endif %}
 
     </div>
     {% empty %}
@@ -112,6 +132,8 @@ shopkart | online Shopping
         <p>Start shopping and place your first order!</p>
     </div>
     {% endfor %}
+
+
 </div>
 
 

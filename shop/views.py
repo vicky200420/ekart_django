@@ -208,4 +208,15 @@ def my_orders(request):
     return render(request, 'my_orders.html', {'orders': orders})
 
 
+@login_required
+def cancel_order(request, order_id):
+    order = get_object_or_404(Order, id=order_id, user=request.user)
+
+    if order.status == "Pending":
+        order.status = "Cancelled"
+        order.save()
+
+    return redirect('my_orders')
+
+
     
