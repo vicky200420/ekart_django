@@ -171,4 +171,41 @@ def product_details(request,cname,pname):
             messages.error(request,"no Such Category Found")
             return redirect('collection')
 
+
+@login_required
+def place_order(request):
+    cart_items = Cart.objects.filter(user=request.user)
+
+    if not cart_items.exists():
+        return redirect('cart')
+
+    total = 0
+    for item in cart_items:
+        total += item.product.selling_price * item.product_qty
+
+    order = Order.objects.create(
+        user=request.user,
+        total_price=total
+    )
+
+    for item in cart_items:
+        OrderItem.objects.create(
+            order=order,
+            product=item.product,
+            quantity=item.product_qty,
+            price=item.product.selling_price
+        )
+
+    cart_items.delete()   # clear cart
+
+    return redirect('my_orders')
+
+
+
+@login_required
+def my_orders(request):
+    orders = Order.objects.filter(user=request.user)
+    return render(request, 'my_orders.html', {'orders': orders})
+
+
     

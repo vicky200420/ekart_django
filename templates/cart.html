@@ -56,6 +56,12 @@ Register | shopkart
             <td id="net">0</td>
          </tr>
         </table>
+
+        <!-- 🔥 PLACE ORDER BUTTON -->
+        <form method="POST" action="{% url 'place_order' %}">
+            {% csrf_token %}
+            <button class="btn btn-primary" type="submit">Place Order</button>
+        </form>
     </div>
 </div>
         </div>

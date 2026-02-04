@@ -1,0 +1,121 @@
+{% extends 'layout/main.html' %}
+
+
+
+{% block title %}
+shopkart | online Shopping
+{% endblock title %}
+
+{% block style %}
+ <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            margin: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            margin-top:6rem;
+        }
+
+        .orders-container {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .order-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .order-card:hover {
+            transform: scale(1.02);
+        }
+
+        .order-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .order-id {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .order-status {
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .pending {
+            background: orange;
+        }
+
+        .delivered {
+            background: green;
+        }
+
+        .order-details {
+            margin-top: 10px;
+            color: #555;
+        }
+
+        .order-details p {
+            margin: 5px 0;
+        }
+
+        .no-orders {
+            text-align: center;
+            color: #888;
+            margin-top: 50px;
+        }
+    </style>
+{% endblock style %}
+
+{% block content %}
+
+<h2>🛒 My Orders</h2>
+
+<div class="orders-container">
+    {% for order in orders %}
+    <div class="order-card">
+
+        <div class="order-header">
+            <div class="order-id">
+                Order #{{ order.id }}
+            </div>
+
+            <div class="order-status {% if order.status == 'Delivered' %}delivered{% else %}pending{% endif %}">
+                {{ order.status }}
+            </div>
+        </div>
+
+        <div class="order-details">
+            <p><strong>Total Amount:</strong> ₹{{ order.total_price }}</p>
+            <p><strong>Order Date:</strong> {{ order.created_at|date:"d M Y, h:i A" }}</p>
+        </div>
+
+    </div>
+    {% empty %}
+    <div class="no-orders">
+        <h3>No orders yet 😔</h3>
+        <p>Start shopping and place your first order!</p>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+{% endblock content %}

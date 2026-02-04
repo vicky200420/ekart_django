@@ -16,5 +16,7 @@ urlpatterns = [
     path('collections/<str:name>',collectionview,name='collection'),
     path('collections/<str:cname>/<str:pname>',product_details,name='product_details'),
     path('addtocard',addtocard,name='addtocard'),
+    path('place-order/',place_order, name='place_order'),
+    path('my-orders/', my_orders, name='my_orders'),
 
 ]
