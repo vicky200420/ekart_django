@@ -1,0 +1,2809 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2026-01-14T15:23:50.535Z",
+    "user": 3,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "GROCERY",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2026-01-14T15:32:27.725Z",
+    "user": 3,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "FASHION",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2026-01-14T16:00:07.699Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Sunflower Oil 1L",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2026-01-16T03:32:47.302Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Iodized Salt 1kg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2026-01-16T03:34:38.799Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Marie Biscuits",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2026-01-16T03:39:24.915Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Wheat Flour 5kg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2026-01-16T03:43:35.097Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Toor Dal 1kg",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2026-01-16T03:45:08.966Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Red chilli Power",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2026-01-16T03:48:54.881Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Arial wash",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2026-01-16T03:51:00.067Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Lays",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2026-01-16T03:51:13.937Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Arial wash",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Catagory\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2026-01-16T03:53:53.208Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Nescafe coffee",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2026-01-16T03:57:38.023Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "One plus nord",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2026-01-16T03:59:49.504Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "14",
+    "object_repr": "Basmati Rice",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2026-01-16T04:02:05.356Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "15",
+    "object_repr": "Fortune Oil",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2026-01-16T04:05:00.903Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "16",
+    "object_repr": "Maize",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2026-01-16T04:07:42.692Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "17",
+    "object_repr": "Turmeric Powder",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2026-01-16T04:22:53.381Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "18",
+    "object_repr": "LG 7 kg Semi-Automatic Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2026-01-16T04:59:07.944Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "19",
+    "object_repr": "Samsung 6.5 kg Fully Automatic Top Load Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2026-01-16T05:01:43.585Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "20",
+    "object_repr": "IFB 7 kg Front Load Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2026-01-16T05:03:34.610Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "21",
+    "object_repr": "Whirlpool 7.5 kg Top Load Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2026-01-16T05:06:02.393Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "22",
+    "object_repr": "Bosch 8 kg Front Load Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2026-01-16T05:07:46.274Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "23",
+    "object_repr": "Haier 6 kg Fully Automatic Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2026-01-16T05:09:46.455Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "24",
+    "object_repr": "Panasonic 7 kg Fully Automatic Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2026-01-16T05:11:18.177Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "25",
+    "object_repr": "Godrej 6.2 kg Top Load Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2026-01-16T05:13:27.910Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "26",
+    "object_repr": "Onida 7 kg Fully Automatic Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2026-01-16T13:35:53.180Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "27",
+    "object_repr": "Voltas Beko 8 kg Semi-Automatic Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2026-01-16T13:37:44.721Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "28",
+    "object_repr": "Onida 7 kg Fully Automatic Washing Machine",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2026-01-16T13:43:43.646Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "Dell Inspiron 15 Laptop",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2026-01-16T13:45:10.575Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "Lenovo IdeaPad Slim 3",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2026-01-16T14:41:15.687Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "30",
+    "object_repr": "Lenovo IdeaPad Slim 3",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2026-01-16T14:41:44.378Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "29",
+    "object_repr": "Dell Inspiron 15 Laptop",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2026-01-16T14:48:18.220Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "31",
+    "object_repr": "Apple MacBook Air M1",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2026-01-16T14:49:58.158Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "32",
+    "object_repr": "ASUS VivoBook 14",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2026-01-16T15:01:36.189Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "33",
+    "object_repr": "Acer Aspire 7",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2026-01-16T15:03:28.335Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "34",
+    "object_repr": "MSI Modern 14",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2026-01-16T15:05:14.333Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "35",
+    "object_repr": "Samsung Galaxy Book 2",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2026-01-16T15:07:28.964Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "36",
+    "object_repr": "Dell XPS 13",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2026-01-16T15:08:47.487Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "32",
+    "object_repr": "ASUS VivoBook 14",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2026-01-16T15:19:49.161Z",
+    "user": 3,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "MOBILES",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2026-01-16T15:24:49.403Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "37",
+    "object_repr": "Samsung Galaxy S23",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2026-01-16T15:29:32.983Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "38",
+    "object_repr": "Apple iPhone 14",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2026-01-16T15:45:30.383Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "39",
+    "object_repr": "Xiaomi Redmi Note 12 Pro",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2026-01-16T15:47:11.944Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "40",
+    "object_repr": "Realme GT Neo 3",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2026-01-16T15:49:42.150Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "41",
+    "object_repr": "Vivo V27",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2026-01-16T15:51:09.195Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "42",
+    "object_repr": "Oppo Reno 8",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2026-01-16T15:53:54.289Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "43",
+    "object_repr": "Google Pixel 7",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2026-01-16T15:56:22.739Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "44",
+    "object_repr": "Motorola Edge 40",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2026-01-16T15:57:45.815Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "45",
+    "object_repr": "Nothing Phone (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2026-01-26T06:34:11.188Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "46",
+    "object_repr": "Sony Tv 12",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2026-01-30T14:55:41.675Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "47",
+    "object_repr": "Samsung 43\" Smart LED TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2026-01-30T14:58:30.829Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "48",
+    "object_repr": "LG 43\" Smart LED TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2026-01-30T15:00:05.672Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "49",
+    "object_repr": "Sony Bravia 43\" LED TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2026-01-30T15:02:02.797Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "50",
+    "object_repr": "Mi 43\" Android Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 82,
+  "fields": {
+    "action_time": "2026-01-30T15:03:11.892Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "51",
+    "object_repr": "OnePlus 43\" Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 83,
+  "fields": {
+    "action_time": "2026-01-30T15:05:52.453Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "52",
+    "object_repr": "TCL 50\" 4K Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 84,
+  "fields": {
+    "action_time": "2026-01-30T15:07:21.941Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "53",
+    "object_repr": "Panasonic 40\" LED Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 85,
+  "fields": {
+    "action_time": "2026-01-30T15:12:55.498Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "54",
+    "object_repr": "Vu 43\" 4K Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 86,
+  "fields": {
+    "action_time": "2026-01-30T15:14:35.343Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "55",
+    "object_repr": "Realme 43\" Smart TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 87,
+  "fields": {
+    "action_time": "2026-01-31T05:00:16.335Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "56",
+    "object_repr": "Onida 32\" LED TV",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 88,
+  "fields": {
+    "action_time": "2026-01-31T05:02:42.956Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "57",
+    "object_repr": "Sony WH-1000XM5",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 89,
+  "fields": {
+    "action_time": "2026-01-31T05:04:11.158Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "58",
+    "object_repr": "Bose QuietComfort 45",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 90,
+  "fields": {
+    "action_time": "2026-01-31T05:06:18.632Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "59",
+    "object_repr": "JBL Tune 710BT",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 91,
+  "fields": {
+    "action_time": "2026-01-31T05:06:48.872Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "58",
+    "object_repr": "Bose QuietComfort 45",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Quantity\", \"Original price\", \"Selling price\", \"Trending\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 92,
+  "fields": {
+    "action_time": "2026-01-31T05:09:59.456Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "60",
+    "object_repr": "boAt Rockerz 510",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 93,
+  "fields": {
+    "action_time": "2026-01-31T05:11:12.108Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "61",
+    "object_repr": "Realme Buds Air 3",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 94,
+  "fields": {
+    "action_time": "2026-01-31T05:12:39.032Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "62",
+    "object_repr": "Apple AirPods Pro",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 95,
+  "fields": {
+    "action_time": "2026-01-31T05:14:32.699Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "63",
+    "object_repr": "Sennheiser HD 450BT",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 96,
+  "fields": {
+    "action_time": "2026-01-31T05:16:55.472Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "64",
+    "object_repr": "Skullcandy Crusher",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 97,
+  "fields": {
+    "action_time": "2026-01-31T05:18:30.656Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "65",
+    "object_repr": "Sony MDR-ZX110",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 98,
+  "fields": {
+    "action_time": "2026-01-31T05:21:33.442Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "66",
+    "object_repr": "JBL C100SI (Wired In-Ear)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 99,
+  "fields": {
+    "action_time": "2026-01-31T05:36:29.210Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "67",
+    "object_repr": "Men’s Cotton T-Shirt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 100,
+  "fields": {
+    "action_time": "2026-01-31T05:37:21.362Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "67",
+    "object_repr": "Men’s Cotton T-Shirt",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Product image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 101,
+  "fields": {
+    "action_time": "2026-01-31T05:38:49.361Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "68",
+    "object_repr": "Women’s Printed Kurti",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 102,
+  "fields": {
+    "action_time": "2026-01-31T05:40:20.133Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "69",
+    "object_repr": "Men’s Denim Jeans",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 103,
+  "fields": {
+    "action_time": "2026-01-31T05:41:53.156Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "70",
+    "object_repr": "Women’s Palazzo Pants",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 104,
+  "fields": {
+    "action_time": "2026-01-31T05:43:26.983Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "71",
+    "object_repr": "Unisex Hoodie",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 105,
+  "fields": {
+    "action_time": "2026-01-31T05:45:00.570Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "72",
+    "object_repr": "Women’s Maxi Dress",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 106,
+  "fields": {
+    "action_time": "2026-01-31T05:47:44.180Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "73",
+    "object_repr": "Men’s Formal Shirt",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 107,
+  "fields": {
+    "action_time": "2026-01-31T05:49:08.274Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "74",
+    "object_repr": "Women’s Leggings",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 108,
+  "fields": {
+    "action_time": "2026-01-31T05:52:38.868Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "75",
+    "object_repr": "Men’s Sneakers",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 109,
+  "fields": {
+    "action_time": "2026-01-31T05:53:41.732Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "76",
+    "object_repr": "Women’s Ballet Flats",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 110,
+  "fields": {
+    "action_time": "2026-01-31T05:54:57.063Z",
+    "user": 3,
+    "content_type": 8,
+    "object_id": "77",
+    "object_repr": "Men’s Wallet",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$pRRZTbCw8kmzZE0UGdh1NC$/pyPWuJ/L7YnmBCMb2BVY4gAnlA/TOLTuXcIgzFkKYQ=",
+    "last_login": "2026-02-27T11:54:11.534Z",
+    "is_superuser": true,
+    "username": "vicky",
+    "first_name": "",
+    "last_name": "",
+    "email": "vicky123@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2026-01-13T20:23:08.022Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$VHrutPYNNruhf3xTL63CbL$YrIJ5LN5XRCE1SPnoqlCrc6AV1aIVqofBn4TVNMDc5Q=",
+    "last_login": "2026-01-13T21:32:12.011Z",
+    "is_superuser": false,
+    "username": "vignesh",
+    "first_name": "",
+    "last_name": "",
+    "email": "vicky123@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-01-13T20:24:12.528Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 5,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$WZJN4rX3suByBXLZn2HOiN$+a9k7PlP7NrcqguZGo42gJxMdsF/X54hOlR6nA6wTlA=",
+    "last_login": "2026-02-04T06:50:30.215Z",
+    "is_superuser": false,
+    "username": "vengat",
+    "first_name": "",
+    "last_name": "",
+    "email": "vengat19@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-01-19T15:56:40.706Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 6,
+  "fields": {
+    "password": "pbkdf2_sha256$1200000$AmOr8dAY0Pq5qSlvS2Y5TV$5H/yogK+eLCcVSoJyuNYLqpavr+klTmqZ5g1x6DCuNU=",
+    "last_login": "2026-03-19T12:05:55.484Z",
+    "is_superuser": false,
+    "username": "hari",
+    "first_name": "",
+    "last_name": "",
+    "email": "hari123@gmail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2026-03-19T12:04:58.555Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2mbw8actkcpxvurgt6xfbsrcutpldpsj",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMAP_iGUVpEuO4IztvqBLHkAJqpaadEH9HlTrAene6NwxpW-uwNV2GsUAPHk6_LCd56rSL8kjTfTYyT-syZrMn5rDNXOeir8vR_g1qahV6sOLZUYwasMuO1JFFhz7QWQj5VjQTc1eYUDRi9JRYWcWiFWtzYPh8AbPrNtk:1vvwQ7:Q3MNun3RZkzzfsA4r7k--eSiukZFVxxDVqYkjf_UHkU",
+    "expire_date": "2026-03-13T11:54:11.548Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "838b0fm2ootyssvc9oq16gcfp2irgi5b",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMAP_iGUVpEuO4IztvqBLHkAJqpaadEH9HlTrAene6NwxpW-uwNV2GsUAPHk6_LCd56rSL8kjTfTYyT-syZrMn5rDNXOeir8vR_g1qahV6sOLZUYwasMuO1JFFhz7QWQj5VjQTc1eYUDRi9JRYWcWiFWtzYPh8AbPrNtk:1vkGBS:Srr6GKQjs0PQns-Xr99Wd9evs3uvC9qZsoIEX6Zi4Vs",
+    "expire_date": "2026-02-09T06:34:46.279Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8laeq9z0f4kyn7kh2y27e381tguusv48",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMAP_iGUVpEuO4IztvqBLHkAJqpaadEH9HlTrAene6NwxpW-uwNV2GsUAPHk6_LCd56rSL8kjTfTYyT-syZrMn5rDNXOeir8vR_g1qahV6sOLZUYwasMuO1JFFhz7QWQj5VjQTc1eYUDRi9JRYWcWiFWtzYPh8AbPrNtk:1vgjwg:qIfeJLbILp3gCFpCcIqVyH7xBRoNxtnoWXCDF64WHpM",
+    "expire_date": "2026-01-30T13:32:58.443Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9qttnxlp5p2ytxbzl0y6rtsbbay2mbyv",
+  "fields": {
+    "session_data": ".eJxVjLsOwjAMAP_FM4qc0MRJR_Z-Q-TELi2gVupjQvw7qtQB1rvTvSHzvg15X3XJo0ALAS6_rHB96nQIefB0n02dp20ZizkSc9rVdLPo63a2f4OB1wFa8Jaoca4yBmuv1sdCWsUiOisk5NDHXpuACSlFlhBTTNJ7UWFKrD18vq-_N1U:1w3C8R:eYe8vRw4gsmZrEV7d-iqsh9Vh1LQRot_w4ZyPy8mffU",
+    "expire_date": "2026-04-02T12:05:55.496Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "krgitwdyagewc86epoky10stsrob5kil",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMAP_iGUVpEuO4IztvqBLHkAJqpaadEH9HlTrAene6NwxpW-uwNV2GsUAPHk6_LCd56rSL8kjTfTYyT-syZrMn5rDNXOeir8vR_g1qahV6sOLZUYwasMuO1JFFhz7QWQj5VjQTc1eYUDRi9JRYWcWiFWtzYPh8AbPrNtk:1vimAB:b8hYd_UIYAdI4FXoE48pimTsS1Kux48-nAaOnLbS8kw",
+    "expire_date": "2026-02-05T04:19:19.620Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u7x2fiz7eh17c01y0nihti49c3uiy0ed",
+  "fields": {
+    "session_data": ".eJxVjDEKwzAMAP-iuRjs2FGUsXvfECTLrtMWB-JkKv17CWRo17vj3jDxvpVpb2mdZoURLFx-mXB8pnoIfXC9LyYudVtnMUdiTtvMbdH0up7t36BwKzACsyD52LOzA5IKDQMFjCzZIXmJ4mOnTKiUu4whYMjJZnWuV2-D9_D5AvdmOCU:1vdsTk:XZMKKfT37aI4RlU3G4Fk5rCzrMSens_8xxYnUfxJRXw",
+    "expire_date": "2026-01-22T16:03:16.262Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "w183rxiy88cqvo6a1bj6vy74i3lmhlca",
+  "fields": {
+    "session_data": ".eJxVjDEKwzAMAP-iuRjs2FGUsXvfECTLrtMWB-JkKv17CWRo17vj3jDxvpVpb2mdZoURLFx-mXB8pnoIfXC9LyYudVtnMUdiTtvMbdH0up7t36BwKzACsyD52LOzA5IKDQMFjCzZIXmJ4mOnTKiUu4whYMjJZnWuV2-D9_D5AvdmOCU:1vdkBV:IrLsNPgZUJEDpGWCHNNibTaICUZxm4yVZ7QHNF0y8sY",
+    "expire_date": "2026-01-22T07:11:53.449Z"
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 1,
+  "fields": {
+    "name": "MOBILES",
+    "image": "uploads/20260108130620_OIP_2.webp",
+    "description": "All Kinds of Mobiles",
+    "status": false,
+    "created_at": "2026-01-08T07:12:30.806Z"
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 2,
+  "fields": {
+    "name": "TELEVISION",
+    "image": "uploads/20260108214049_OIP_9.jpg",
+    "description": "All Kinds of Television here",
+    "status": false,
+    "created_at": "2026-01-08T16:10:49.113Z"
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 3,
+  "fields": {
+    "name": "LAPTOP",
+    "image": "uploads/20260108220314_OIP.webp",
+    "description": "All Kinds of Laptop here",
+    "status": false,
+    "created_at": "2026-01-08T16:11:54.755Z"
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 4,
+  "fields": {
+    "name": "HEADPHONES",
+    "image": "uploads/20260108215518_OIP_2.jpg",
+    "description": "All Kinds of Headphones here",
+    "status": false,
+    "created_at": "2026-01-08T16:12:37.034Z"
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 5,
+  "fields": {
+    "name": "WASHING MACHINE",
+    "image": "uploads/20260108214426_WASHING.jpg",
+    "description": "All kinds of Washing machine",
+    "status": false,
+    "created_at": "2026-01-08T16:14:26.088Z"
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 6,
+  "fields": {
+    "name": "GROCERY",
+    "image": "uploads/20260114205350_download_1.webp",
+    "description": "ALL type of Grocery here",
+    "status": false,
+    "created_at": "2026-01-14T15:23:50.529Z"
+  }
+},
+{
+  "model": "shop.catagory",
+  "pk": 7,
+  "fields": {
+    "name": "FASHION",
+    "image": "uploads/20260114210227_OIP.jpg",
+    "description": "Hight Brand dress and fashion",
+    "status": false,
+    "created_at": "2026-01-14T15:32:27.715Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 1,
+  "fields": {
+    "catagory": 3,
+    "name": "HP Pavillion i5",
+    "vendor": "Hp",
+    "product_image": "uploads/20260111153525_OIP_1.webp",
+    "quantity": 20,
+    "original_price": 599999.0,
+    "selling_price": 55000.0,
+    "description": "Hp is Best for Using a Programming Laptop",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-11T10:05:25.614Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "catagory": 3,
+    "name": "Asus VivoBook 14",
+    "vendor": "Asus",
+    "product_image": "uploads/20260113191846_OIP1768312090.png",
+    "quantity": 0,
+    "original_price": 50000.0,
+    "selling_price": 48000.0,
+    "description": "ASUS laptop offers fast processing, high-quality display, and durable build for smooth daily computing",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-13T13:10:45.983Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "catagory": 1,
+    "name": "Apple iphone 17 promax",
+    "vendor": "Apple",
+    "product_image": "uploads/20260113191056_Pngtreeiphone_15_blue_13289457.png",
+    "quantity": 10,
+    "original_price": 69999.0,
+    "selling_price": 59999.0,
+    "description": "Apple iPhone combines cutting-edge technology, high-quality camera, and seamless ecosystem integration.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-13T13:33:53.778Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 4,
+  "fields": {
+    "catagory": 6,
+    "name": "Sunflower Oil 1L",
+    "vendor": "Golden Harvest Distributors",
+    "product_image": "uploads/20260114213007_OIP_12.webp",
+    "quantity": 68,
+    "original_price": 167.0,
+    "selling_price": 140.0,
+    "description": "Sunflower oil is Best for Helath and performances",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-14T16:00:07.687Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 5,
+  "fields": {
+    "catagory": 6,
+    "name": "Iodized Salt 1kg",
+    "vendor": "Local Grocery Supplier",
+    "product_image": "uploads/20260116090247_download_5.webp",
+    "quantity": 46,
+    "original_price": 27.0,
+    "selling_price": 24.0,
+    "description": "Iodized Salt 1kg ensures daily iodine intake, helping support good health and proper body function.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T03:32:47.283Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 6,
+  "fields": {
+    "catagory": 6,
+    "name": "Marie Biscuits",
+    "vendor": "Local Grocery Supplier",
+    "product_image": "uploads/20260116090438_download_3.webp",
+    "quantity": 100,
+    "original_price": 20.0,
+    "selling_price": 15.0,
+    "description": "Marie biscuits are light, crispy, and mildly sweet biscuits perfect for tea-time snacking.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T03:34:38.795Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 7,
+  "fields": {
+    "catagory": 6,
+    "name": "Wheat Flour 5kg",
+    "vendor": "Local Grocery Supplier",
+    "product_image": "uploads/20260116090924_download_7.webp",
+    "quantity": 50,
+    "original_price": 150.0,
+    "selling_price": 125.0,
+    "description": "Wheat is a nutritious whole grain widely used for making flour, chapati, and other staple foods.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-16T03:39:24.911Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 8,
+  "fields": {
+    "catagory": 6,
+    "name": "Toor Dal 1kg",
+    "vendor": "Tata sampann",
+    "product_image": "uploads/20260116091335_download_6.webp",
+    "quantity": 68,
+    "original_price": 160.0,
+    "selling_price": 150.0,
+    "description": "Toor Dal is a protein-rich pulse commonly used in everyday cooking for making sambar and dal dishes.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T03:43:35.092Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 9,
+  "fields": {
+    "catagory": 6,
+    "name": "Red chilli Power",
+    "vendor": "Everest",
+    "product_image": "uploads/20260116091508_download_4.webp",
+    "quantity": 100,
+    "original_price": 120.0,
+    "selling_price": 110.0,
+    "description": "Red chilli powder adds rich color and spicy flavor to a variety of Indian dishes.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T03:45:08.961Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 10,
+  "fields": {
+    "catagory": 5,
+    "name": "Arial wash",
+    "vendor": "Ariel",
+    "product_image": "uploads/20260116091854_OIP_5.webp",
+    "quantity": 70,
+    "original_price": 150.0,
+    "selling_price": 125.0,
+    "description": "Ariel detergent powder provides powerful stain removal and keeps clothes bright and fresh.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T03:48:54.877Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 11,
+  "fields": {
+    "catagory": 6,
+    "name": "Lays",
+    "vendor": "Lay’s (PepsiCo)",
+    "product_image": "uploads/20260116092100_OIP_7.webp",
+    "quantity": 230,
+    "original_price": 20.0,
+    "selling_price": 15.0,
+    "description": "Lays potato chips are crispy, tasty snacks made from quality potatoes and flavorful seasonings.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T03:51:00.050Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 12,
+  "fields": {
+    "catagory": 6,
+    "name": "Nescafe coffee",
+    "vendor": "Nescafe",
+    "product_image": "uploads/20260116092353_OIP_8.webp",
+    "quantity": 100,
+    "original_price": 220.0,
+    "selling_price": 200.0,
+    "description": "Nescafé coffee delivers a rich aroma and smooth taste, perfect for an instant energy boost.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-16T03:53:53.205Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 13,
+  "fields": {
+    "catagory": 1,
+    "name": "One plus nord",
+    "vendor": "One Plus",
+    "product_image": "uploads/20260116092738_OnePlus-Nord-CE3-5G-Gray1.jpg",
+    "quantity": 25,
+    "original_price": 35000.0,
+    "selling_price": 34000.0,
+    "description": "OnePlus smartphone offers fast performance, a smooth display, and a premium design for everyday use.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-16T03:57:38.020Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 14,
+  "fields": {
+    "catagory": 6,
+    "name": "Basmati Rice",
+    "vendor": "Indian Gate",
+    "product_image": "uploads/20260116092949_OIP_13.webp",
+    "quantity": 200,
+    "original_price": 180.0,
+    "selling_price": 170.0,
+    "description": "Basmati rice is a premium long-grain rice known for its rich aroma and fluffy texture after cooking.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-16T03:59:49.501Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 15,
+  "fields": {
+    "catagory": 6,
+    "name": "Fortune Oil",
+    "vendor": "Fortune(Adani wilmar)",
+    "product_image": "uploads/20260116093205_OIP_12.webp",
+    "quantity": 250,
+    "original_price": 170.0,
+    "selling_price": 150.0,
+    "description": "Fortune cooking oil is refined to provide healthy, light, and tasty cooking for everyday meals",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T04:02:05.352Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 16,
+  "fields": {
+    "catagory": 6,
+    "name": "Maize",
+    "vendor": "Maize",
+    "product_image": "uploads/20260116093500_th_1.webp",
+    "quantity": 150,
+    "original_price": 40.0,
+    "selling_price": 35.0,
+    "description": "Maize is a nutritious cereal grain widely used for cooking, animal feed, and making flour and snacks.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T04:05:00.885Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 17,
+  "fields": {
+    "catagory": 6,
+    "name": "Turmeric Powder",
+    "vendor": "Everest",
+    "product_image": "uploads/20260116093742_OIP_11.webp",
+    "quantity": 50,
+    "original_price": 90.0,
+    "selling_price": 85.0,
+    "description": "Turmeric powder adds natural color and earthy flavor to food and is valued for its health benefits.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T04:07:42.689Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 18,
+  "fields": {
+    "catagory": 5,
+    "name": "LG 7 kg Semi-Automatic Washing Machine",
+    "vendor": "LG",
+    "product_image": "uploads/20260116095253_OIP_1.jpg",
+    "quantity": 20,
+    "original_price": 13000.0,
+    "selling_price": 12500.0,
+    "description": "Efficient semi-automatic washer suitable for small to medium families.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T04:22:53.370Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 19,
+  "fields": {
+    "catagory": 5,
+    "name": "Samsung 6.5 kg Fully Automatic Top Load Washing Machine",
+    "vendor": "Samsung",
+    "product_image": "uploads/20260116102907_OIP_2.jpg",
+    "quantity": 15,
+    "original_price": 16000.0,
+    "selling_price": 15500.0,
+    "description": "Fully automatic washer with powerful cleaning and energy efficiency.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T04:59:07.932Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 20,
+  "fields": {
+    "catagory": 5,
+    "name": "IFB 7 kg Front Load Washing Machine",
+    "vendor": "IFB",
+    "product_image": "uploads/20260116103143_download.jpg",
+    "quantity": 25,
+    "original_price": 24000.0,
+    "selling_price": 20000.0,
+    "description": "Advanced front-load washing machine with gentle fabric care.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T05:01:43.568Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 21,
+  "fields": {
+    "catagory": 5,
+    "name": "Whirlpool 7.5 kg Top Load Washing Machine",
+    "vendor": "Whirlpool",
+    "product_image": "uploads/20260116103334_OIP_3.jpg",
+    "quantity": 10,
+    "original_price": 18500.0,
+    "selling_price": 0.0,
+    "description": "Reliable top-load washer with fast wash programs.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T05:03:34.606Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 22,
+  "fields": {
+    "catagory": 5,
+    "name": "Bosch 8 kg Front Load Washing Machine",
+    "vendor": "Bosch",
+    "product_image": "uploads/20260116103602_OIP_4.jpg",
+    "quantity": 15000,
+    "original_price": 32000.0,
+    "selling_price": 30000.0,
+    "description": "Premium front-load washing machine with silent operation and durability.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T05:06:02.387Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 23,
+  "fields": {
+    "catagory": 5,
+    "name": "Haier 6 kg Fully Automatic Washing Machine",
+    "vendor": "Haier",
+    "product_image": "uploads/20260116103746_OIP_5.jpg",
+    "quantity": 20,
+    "original_price": 14500.0,
+    "selling_price": 12000.0,
+    "description": "Compact and affordable washing machine ideal for small households",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T05:07:46.270Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 24,
+  "fields": {
+    "catagory": 5,
+    "name": "Panasonic 7 kg Fully Automatic Washing Machine",
+    "vendor": "Panasonic",
+    "product_image": "uploads/20260116103946_OIP_6.jpg",
+    "quantity": 10,
+    "original_price": 15000.0,
+    "selling_price": 14000.0,
+    "description": "Smart washing machine with powerful motor and low water usage.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T05:09:46.450Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 25,
+  "fields": {
+    "catagory": 5,
+    "name": "Godrej 6.2 kg Top Load Washing Machine",
+    "vendor": "Godrej",
+    "product_image": "uploads/20260116104118_OIP_7.jpg",
+    "quantity": 0,
+    "original_price": 13000.0,
+    "selling_price": 12000.0,
+    "description": "Eco-friendly washing machine with simple controls and sturdy build",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T05:11:18.171Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 26,
+  "fields": {
+    "catagory": 5,
+    "name": "Onida 7 kg Fully Automatic Washing Machine",
+    "vendor": "Onida",
+    "product_image": "uploads/20260116104327_OIP_8.jpg",
+    "quantity": 25,
+    "original_price": 14500.0,
+    "selling_price": 12000.0,
+    "description": "Budget-friendly washer with multiple wash programs.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-16T05:13:27.906Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 27,
+  "fields": {
+    "catagory": 5,
+    "name": "Voltas Beko 8 kg Semi-Automatic Washing Machine",
+    "vendor": "Voltas",
+    "product_image": "uploads/20260116190553_OIP_9.jpg",
+    "quantity": 10,
+    "original_price": 11500.0,
+    "selling_price": 10000.0,
+    "description": "High-capacity semi-automatic washer for efficient everyday use.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T13:35:53.171Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 28,
+  "fields": {
+    "catagory": 5,
+    "name": "Onida 7 kg Fully Automatic Washing Machine",
+    "vendor": "Onida",
+    "product_image": "uploads/20260116190744_OIP_10.jpg",
+    "quantity": 15,
+    "original_price": 15000.0,
+    "selling_price": 14000.0,
+    "description": "Onida 7 kg Fully Automatic Washing Machine",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T13:37:44.716Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 29,
+  "fields": {
+    "catagory": 3,
+    "name": "Dell Inspiron 15 Laptop",
+    "vendor": "Dell",
+    "product_image": "uploads/20260116201144_th.webp",
+    "quantity": 26,
+    "original_price": 55000.0,
+    "selling_price": 50000.0,
+    "description": "Durable and efficient laptop suitable for students and professionals.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T13:43:43.640Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 30,
+  "fields": {
+    "catagory": 3,
+    "name": "Lenovo IdeaPad Slim 3",
+    "vendor": "Lenovo",
+    "product_image": "uploads/20260116191510_OIP_11.jpg",
+    "quantity": 40,
+    "original_price": 45000.0,
+    "selling_price": 43500.0,
+    "description": "Lightweight laptop offering smooth performance for daily computing needs.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T13:45:10.572Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 31,
+  "fields": {
+    "catagory": 3,
+    "name": "Apple MacBook Air M1",
+    "vendor": "Apple",
+    "product_image": "uploads/20260116201818_OIP_12.jpg",
+    "quantity": 10,
+    "original_price": 85000.0,
+    "selling_price": 80500.0,
+    "description": "Premium laptop with powerful performance, long battery life, and macOS.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T14:48:18.203Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 32,
+  "fields": {
+    "catagory": 3,
+    "name": "ASUS VivoBook 14",
+    "vendor": "Asus",
+    "product_image": "uploads/20260116203847_OIP_12.jpg",
+    "quantity": 21,
+    "original_price": 48000.0,
+    "selling_price": 45000.0,
+    "description": "Compact and stylish laptop with fast processing and vibrant display.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T14:49:58.153Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 33,
+  "fields": {
+    "catagory": 3,
+    "name": "Acer Aspire 7",
+    "vendor": "Acer",
+    "product_image": "uploads/20260116203136_OIP_1.jpg",
+    "quantity": 15,
+    "original_price": 60000.0,
+    "selling_price": 55000.0,
+    "description": "Performance-focused laptop suitable for multitasking and light gaming.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:01:36.184Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 34,
+  "fields": {
+    "catagory": 3,
+    "name": "MSI Modern 14",
+    "vendor": "MSI",
+    "product_image": "uploads/20260116203328_OIP_13.jpg",
+    "quantity": 10,
+    "original_price": 58000.0,
+    "selling_price": 55000.0,
+    "description": "Slim and powerful laptop designed for productivity and professional use.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:03:28.331Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 35,
+  "fields": {
+    "catagory": 3,
+    "name": "Samsung Galaxy Book 2",
+    "vendor": "Samsung",
+    "product_image": "uploads/20260116203514_OIP_14.jpg",
+    "quantity": 12,
+    "original_price": 62000.0,
+    "selling_price": 58000.0,
+    "description": "Sleek laptop with seamless Windows experience and efficient performance",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:05:14.330Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 36,
+  "fields": {
+    "catagory": 3,
+    "name": "Dell XPS 13",
+    "vendor": "Dell",
+    "product_image": "uploads/20260116203728_OIP_15.jpg",
+    "quantity": 20,
+    "original_price": 120000.0,
+    "selling_price": 105000.0,
+    "description": "Premium ultrabook with high-resolution display and powerful performance.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:07:28.959Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 37,
+  "fields": {
+    "catagory": 1,
+    "name": "Samsung Galaxy S23",
+    "vendor": "Samsung",
+    "product_image": "uploads/20260116205449_OIP_4.webp",
+    "quantity": 30,
+    "original_price": 74999.0,
+    "selling_price": 65000.0,
+    "description": "Premium smartphone with powerful performance and a high-quality camera.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:24:49.399Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 38,
+  "fields": {
+    "catagory": 1,
+    "name": "Apple iPhone 14",
+    "vendor": "Apple",
+    "product_image": "uploads/20260116205932_OIP_3.webp",
+    "quantity": 10,
+    "original_price": 69999.0,
+    "selling_price": 59999.0,
+    "description": "Sleek smartphone offering smooth iOS experience and reliable performance.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:29:32.978Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 39,
+  "fields": {
+    "catagory": 1,
+    "name": "Xiaomi Redmi Note 12 Pro",
+    "vendor": "Redmi",
+    "product_image": "uploads/20260116211530_th.webp",
+    "quantity": 25,
+    "original_price": 24999.0,
+    "selling_price": 21000.0,
+    "description": "Feature-rich smartphone with excellent camera and value-for-money pricing",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:45:30.372Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 40,
+  "fields": {
+    "catagory": 1,
+    "name": "Realme GT Neo 3",
+    "vendor": "Realme",
+    "product_image": "uploads/20260116211711_OIP_16.jpg",
+    "quantity": 5,
+    "original_price": 36999.0,
+    "selling_price": 33999.0,
+    "description": "Realme GT Neo 3",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:47:11.940Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 41,
+  "fields": {
+    "catagory": 1,
+    "name": "Vivo V27",
+    "vendor": "Vivo",
+    "product_image": "uploads/20260116211942_OIP_17.jpg",
+    "quantity": 15,
+    "original_price": 32999.0,
+    "selling_price": 26000.0,
+    "description": "Stylish smartphone with strong camera performance and smooth display.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:49:42.145Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 42,
+  "fields": {
+    "catagory": 1,
+    "name": "Oppo Reno 8",
+    "vendor": "Oppo",
+    "product_image": "uploads/20260116212109_OIP_18.jpg",
+    "quantity": 22,
+    "original_price": 29999.0,
+    "selling_price": 25999.0,
+    "description": "Elegant smartphone designed for photography and everyday performance.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:51:09.190Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 43,
+  "fields": {
+    "catagory": 1,
+    "name": "Google Pixel 7",
+    "vendor": "Google",
+    "product_image": "uploads/20260116212354_OIP_19.jpg",
+    "quantity": 7,
+    "original_price": 59999.0,
+    "selling_price": 55000.0,
+    "description": "Smart Android phone with excellent camera and clean software experience.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:53:54.282Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 44,
+  "fields": {
+    "catagory": 1,
+    "name": "Motorola Edge 40",
+    "vendor": "Moto",
+    "product_image": "uploads/20260116212622_OIP_20.jpg",
+    "quantity": 15,
+    "original_price": 29999.0,
+    "selling_price": 25000.0,
+    "description": "Slim and lightweight smartphone with clean Android and fast performance.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:56:22.736Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 45,
+  "fields": {
+    "catagory": 1,
+    "name": "Nothing Phone (1)",
+    "vendor": "Nothing",
+    "product_image": "uploads/20260116212745_download_1.jpg",
+    "quantity": 3,
+    "original_price": 32999.0,
+    "selling_price": 29999.0,
+    "description": "Unique design smartphone with smooth performance and clean user interface.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-16T15:57:45.811Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 46,
+  "fields": {
+    "catagory": 2,
+    "name": "Sony Tv 12",
+    "vendor": "Sony",
+    "product_image": "uploads/20260126120411_OIP_12.jpg",
+    "quantity": 10,
+    "original_price": 25000.0,
+    "selling_price": 22000.0,
+    "description": "This is a best for use and sell",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-26T06:34:11.179Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 47,
+  "fields": {
+    "catagory": 2,
+    "name": "Samsung 43\" Smart LED TV",
+    "vendor": "Samsung",
+    "product_image": "uploads/20260130202541_OIP1.jpg",
+    "quantity": 5,
+    "original_price": 32000.0,
+    "selling_price": 30000.0,
+    "description": "Full HD Smart TV with Tizen OS, good picture quality and sound.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-30T14:55:41.659Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 48,
+  "fields": {
+    "catagory": 2,
+    "name": "LG 43\" Smart LED TV",
+    "vendor": "LG",
+    "product_image": "uploads/20260130202830_OIP_21.jpg",
+    "quantity": 10,
+    "original_price": 34000.0,
+    "selling_price": 30000.0,
+    "description": "WebOS Smart TV with AI ThinQ, good color accuracy",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-30T14:58:30.825Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 49,
+  "fields": {
+    "catagory": 2,
+    "name": "Sony Bravia 43\" LED TV",
+    "vendor": "Sony",
+    "product_image": "uploads/20260130203005_OIP_21.jpg",
+    "quantity": 15,
+    "original_price": 45000.0,
+    "selling_price": 40000.0,
+    "description": "Premium LED TV with X-Reality PRO and Dolby Audio",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-30T15:00:05.667Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 50,
+  "fields": {
+    "catagory": 2,
+    "name": "Mi 43\" Android Smart TV",
+    "vendor": "Mi",
+    "product_image": "uploads/20260130203202_OIP_23.jpg",
+    "quantity": 4,
+    "original_price": 26000.0,
+    "selling_price": 24000.0,
+    "description": "Android TV with PatchWall, Google Assistant support.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-30T15:02:02.789Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 51,
+  "fields": {
+    "catagory": 2,
+    "name": "OnePlus 43\" Smart TV",
+    "vendor": "OnePlus",
+    "product_image": "uploads/20260130203311_OIP_24.jpg",
+    "quantity": 9,
+    "original_price": 29000.0,
+    "selling_price": 26000.0,
+    "description": "Android-based TV with Dolby Audio and bezel-less design.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-30T15:03:11.888Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 52,
+  "fields": {
+    "catagory": 2,
+    "name": "TCL 50\" 4K Smart TV",
+    "vendor": "TCL",
+    "product_image": "uploads/20260130203552_OIP_25.jpg",
+    "quantity": 2,
+    "original_price": 38000.0,
+    "selling_price": 35000.0,
+    "description": "4K UHD TV with HDR support and Android OS.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-30T15:05:52.447Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 53,
+  "fields": {
+    "catagory": 2,
+    "name": "Panasonic 40\" LED Smart TV",
+    "vendor": "Panasonic",
+    "product_image": "uploads/20260130203721_OIP_26.jpg",
+    "quantity": 0,
+    "original_price": 30000.0,
+    "selling_price": 30000.0,
+    "description": "LED Smart TV with Dolby Digital sound and My Home Screen OS.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-30T15:07:21.935Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 54,
+  "fields": {
+    "catagory": 2,
+    "name": "Vu 43\" 4K Smart TV",
+    "vendor": "Vu Smart",
+    "product_image": "uploads/20260130204255_OIP_27.jpg",
+    "quantity": 3,
+    "original_price": 28000.0,
+    "selling_price": 24000.0,
+    "description": "4K Ultra HD TV with powerful speakers and Android TV.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-30T15:12:55.483Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 55,
+  "fields": {
+    "catagory": 2,
+    "name": "Realme 43\" Smart TV",
+    "vendor": "Realme",
+    "product_image": "uploads/20260130204435_OIP_28.jpg",
+    "quantity": 10,
+    "original_price": 25000.0,
+    "selling_price": 22000.0,
+    "description": "Budget-friendly Smart TV with Chroma Boost and Dolby Audio.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-30T15:14:35.338Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 56,
+  "fields": {
+    "catagory": 4,
+    "name": "Onida 32\" LED TV",
+    "vendor": "Onida",
+    "product_image": "uploads/20260131103016_OIP_29.jpg",
+    "quantity": 5,
+    "original_price": 15000.0,
+    "selling_price": 14000.0,
+    "description": "HD Ready LED TV suitable for small rooms.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:00:16.315Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 57,
+  "fields": {
+    "catagory": 4,
+    "name": "Sony WH-1000XM5",
+    "vendor": "Sony",
+    "product_image": "uploads/20260131103242_OIP_30.jpg",
+    "quantity": 10,
+    "original_price": 28000.0,
+    "selling_price": 25000.0,
+    "description": "Premium over-ear ANC headphones with long battery life & superior sound.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:02:42.948Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 58,
+  "fields": {
+    "catagory": 4,
+    "name": "Bose QuietComfort 45",
+    "vendor": "Bose",
+    "product_image": "uploads/20260131103411_OIP_31.jpg",
+    "quantity": 5,
+    "original_price": 30000.0,
+    "selling_price": 29000.0,
+    "description": "Bose QuietComfort 45 (Wireless ANC)",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:04:11.144Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 59,
+  "fields": {
+    "catagory": 4,
+    "name": "JBL Tune 710BT",
+    "vendor": "JBL",
+    "product_image": "uploads/20260131103618_OIP.webp",
+    "quantity": 15,
+    "original_price": 5500.0,
+    "selling_price": 5000.0,
+    "description": "JBL Tune 710BT (Bluetooth Over-Ear)",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:06:18.627Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 60,
+  "fields": {
+    "catagory": 4,
+    "name": "boAt Rockerz 510",
+    "vendor": "BOAT",
+    "product_image": "uploads/20260131103959_OIP_1.webp",
+    "quantity": 25,
+    "original_price": 1799.0,
+    "selling_price": 1599.0,
+    "description": "Budget Bluetooth neckband-style headphones with powerful bass.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:09:59.450Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 61,
+  "fields": {
+    "catagory": 4,
+    "name": "Realme Buds Air 3",
+    "vendor": "Realme",
+    "product_image": "uploads/20260131104112_OIP_2.webp",
+    "quantity": 15,
+    "original_price": 4999.0,
+    "selling_price": 3999.0,
+    "description": "Budget Bluetooth neckband-style headphones with powerful bass.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:11:12.103Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 62,
+  "fields": {
+    "catagory": 4,
+    "name": "Apple AirPods Pro",
+    "vendor": "Apple",
+    "product_image": "uploads/20260131104239_download.webp",
+    "quantity": 10,
+    "original_price": 26000.0,
+    "selling_price": 24000.0,
+    "description": "Apple AirPods Pro (2nd Gen)",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:12:39.015Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 63,
+  "fields": {
+    "catagory": 4,
+    "name": "Sennheiser HD 450BT",
+    "vendor": "Sennheiser",
+    "product_image": "uploads/20260131104432_OIP_3.webp",
+    "quantity": 10,
+    "original_price": 9000.0,
+    "selling_price": 7999.0,
+    "description": "Balanced audio wireless headphones with strong connectivity",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:14:32.694Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 64,
+  "fields": {
+    "catagory": 4,
+    "name": "Skullcandy Crusher",
+    "vendor": "Skullcandy",
+    "product_image": "uploads/20260131104655_OIP_4.webp",
+    "quantity": 5,
+    "original_price": 6999.0,
+    "selling_price": 4999.0,
+    "description": "Bass-heavy headphones with adjustable sensory bass.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:16:55.468Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 65,
+  "fields": {
+    "catagory": 4,
+    "name": "Sony MDR-ZX110",
+    "vendor": "Sony",
+    "product_image": "uploads/20260131104830_download_1.webp",
+    "quantity": 20,
+    "original_price": 1100.0,
+    "selling_price": 1000.0,
+    "description": "Simple wired headphones, lightweight & travel friendly.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:18:30.650Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 66,
+  "fields": {
+    "catagory": 4,
+    "name": "JBL C100SI (Wired In-Ear)",
+    "vendor": "JBl",
+    "product_image": "uploads/20260131105133_OIP_5.webp",
+    "quantity": 25,
+    "original_price": 799.0,
+    "selling_price": 599.0,
+    "description": "Budget in-ear earphones with voice assistant support.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:21:33.438Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 67,
+  "fields": {
+    "catagory": 7,
+    "name": "Men’s Cotton T-Shirt",
+    "vendor": "Normal",
+    "product_image": "uploads/20260131110721_OIP_7.webp",
+    "quantity": 30,
+    "original_price": 499.0,
+    "selling_price": 299.0,
+    "description": "Men’s Cotton T-Shirt",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:36:29.192Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 68,
+  "fields": {
+    "catagory": 7,
+    "name": "Women’s Printed Kurti",
+    "vendor": "Printed",
+    "product_image": "uploads/20260131110849_OIP_8.webp",
+    "quantity": 25,
+    "original_price": 899.0,
+    "selling_price": 699.0,
+    "description": "Rayon kurti with ethnic print and side pockets.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:38:49.355Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 69,
+  "fields": {
+    "catagory": 7,
+    "name": "Men’s Denim Jeans",
+    "vendor": "Jeans",
+    "product_image": "uploads/20260131111020_OIP_9.webp",
+    "quantity": 50,
+    "original_price": 1299.0,
+    "selling_price": 999.0,
+    "description": "Slim fit stretchable denim, multiple washes.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:40:20.127Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 70,
+  "fields": {
+    "catagory": 7,
+    "name": "Women’s Palazzo Pants",
+    "vendor": "Palazzo",
+    "product_image": "uploads/20260131111153_download_2.webp",
+    "quantity": 30,
+    "original_price": 1599.0,
+    "selling_price": 1299.0,
+    "description": "Lightweight Palazzo with elastic waist.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:41:53.152Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 71,
+  "fields": {
+    "catagory": 7,
+    "name": "Unisex Hoodie",
+    "vendor": "Unisex",
+    "product_image": "uploads/20260131111326_OIP_10.webp",
+    "quantity": 20,
+    "original_price": 1499.0,
+    "selling_price": 1299.0,
+    "description": "Fleece hoodie with pouch pocket, winter wear.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:43:26.980Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 72,
+  "fields": {
+    "catagory": 7,
+    "name": "Women’s Maxi Dress",
+    "vendor": "Maixi",
+    "product_image": "uploads/20260131111500_OIP_11.webp",
+    "quantity": 22,
+    "original_price": 1599.0,
+    "selling_price": 1199.0,
+    "description": "Floral printed maxi, soft comfortable fabric.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:45:00.566Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 73,
+  "fields": {
+    "catagory": 7,
+    "name": "Men’s Formal Shirt",
+    "vendor": "Formal",
+    "product_image": "uploads/20260131111744_OIP_12.webp",
+    "quantity": 42,
+    "original_price": 1099.0,
+    "selling_price": 999.0,
+    "description": "Solid formal shirt, easy iron fabric.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:47:44.173Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 74,
+  "fields": {
+    "catagory": 7,
+    "name": "Women’s Leggings",
+    "vendor": "Leggings",
+    "product_image": "uploads/20260131111908_OIP_13.webp",
+    "quantity": 29,
+    "original_price": 499.0,
+    "selling_price": 399.0,
+    "description": "tretchable leggings, soft elastic waist",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:49:08.270Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 75,
+  "fields": {
+    "catagory": 7,
+    "name": "Men’s Sneakers",
+    "vendor": "Sneakers",
+    "product_image": "uploads/20260131112238_OIP_14.webp",
+    "quantity": 19,
+    "original_price": 2299.0,
+    "selling_price": 1999.0,
+    "description": "Casual lace-up sneakers, lightweight sole.",
+    "status": false,
+    "trending": true,
+    "created_at": "2026-01-31T05:52:38.863Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 76,
+  "fields": {
+    "catagory": 7,
+    "name": "Women’s Ballet Flats",
+    "vendor": "Ballet",
+    "product_image": "uploads/20260131112341_OIP_15.webp",
+    "quantity": 16,
+    "original_price": 1099.0,
+    "selling_price": 899.0,
+    "description": "Comfortable flat shoes with cushioned insoles.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:53:41.727Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 77,
+  "fields": {
+    "catagory": 7,
+    "name": "Men’s Wallet",
+    "vendor": "Zudio",
+    "product_image": "uploads/20260131112457_OIP_16.webp",
+    "quantity": 25,
+    "original_price": 899.0,
+    "selling_price": 699.0,
+    "description": "Bi-fold genuine leather wallet with card slots.",
+    "status": false,
+    "trending": false,
+    "created_at": "2026-01-31T05:54:57.059Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 3,
+  "fields": {
+    "user": 5,
+    "product": 3,
+    "product_qty": 1,
+    "created_at": "2026-01-19T16:28:54.877Z"
+  }
+},
+{
+  "model": "shop.cart",
+  "pk": 8,
+  "fields": {
+    "user": 3,
+    "product": 37,
+    "product_qty": 1,
+    "created_at": "2026-02-27T11:54:42.495Z"
+  }
+},
+{
+  "model": "shop.favourite",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "product": 22,
+    "created_at": "2026-01-19T06:43:54.784Z"
+  }
+},
+{
+  "model": "shop.favourite",
+  "pk": 4,
+  "fields": {
+    "user": 5,
+    "product": 3,
+    "created_at": "2026-01-19T16:28:48.834Z"
+  }
+},
+{
+  "model": "shop.favourite",
+  "pk": 5,
+  "fields": {
+    "user": 3,
+    "product": 40,
+    "created_at": "2026-01-26T06:35:21.434Z"
+  }
+},
+{
+  "model": "shop.favourite",
+  "pk": 6,
+  "fields": {
+    "user": 3,
+    "product": 61,
+    "created_at": "2026-01-31T05:22:31.923Z"
+  }
+},
+{
+  "model": "shop.favourite",
+  "pk": 7,
+  "fields": {
+    "user": 3,
+    "product": 66,
+    "created_at": "2026-01-31T05:22:40.413Z"
+  }
+},
+{
+  "model": "shop.favourite",
+  "pk": 8,
+  "fields": {
+    "user": 6,
+    "product": 7,
+    "created_at": "2026-03-20T04:58:57.579Z"
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 1,
+  "fields": {
+    "user": 3,
+    "total_price": 180085.0,
+    "status": "Pending",
+    "created_at": "2026-02-04T06:14:04.211Z"
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "total_price": 299.0,
+    "status": "Cancelled",
+    "created_at": "2026-02-04T06:31:42.221Z"
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 3,
+  "fields": {
+    "user": 6,
+    "total_price": 55000.0,
+    "status": "Pending",
+    "created_at": "2026-03-19T12:06:37.868Z"
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 4,
+  "fields": {
+    "user": 6,
+    "total_price": 60124.0,
+    "status": "Pending",
+    "created_at": "2026-03-20T03:41:11.209Z"
+  }
+},
+{
+  "model": "shop.order",
+  "pk": 5,
+  "fields": {
+    "user": 6,
+    "total_price": 59999.0,
+    "status": "Pending",
+    "created_at": "2026-03-20T04:57:02.738Z"
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 39,
+    "quantity": 1,
+    "price": 21000.0
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 1,
+    "product": 17,
+    "quantity": 1,
+    "price": 85.0
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 1,
+    "product": 32,
+    "quantity": 3,
+    "price": 45000.0
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 1,
+    "product": 62,
+    "quantity": 1,
+    "price": 24000.0
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 2,
+    "product": 67,
+    "quantity": 1,
+    "price": 299.0
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 3,
+    "product": 1,
+    "quantity": 1,
+    "price": 55000.0
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 4,
+    "product": 7,
+    "quantity": 1,
+    "price": 125.0
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 4,
+    "product": 3,
+    "quantity": 1,
+    "price": 59999.0
+  }
+},
+{
+  "model": "shop.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 5,
+    "product": 3,
+    "quantity": 1,
+    "price": 59999.0
+  }
+}
+]

@@ -1,78 +1,434 @@
 {% extends 'layout/main.html' %}
 
-{% block title %}
-Register | shopkart
-{% endblock title %}
+{% block title %}Shop by Category | EKART{% endblock title %}
 
 {% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-    .card{
-        width:80%;
-    }
-    .card img{
-        height:200px;
-    }
+  :root {
+    --accent:  #e63946;
+    --dark:    #0d0d0d;
+    --slate:   #1c1c2e;
+    --muted:   #6b7280;
+    --border:  #e5e7eb;
+    --surface: #f9fafb;
+    --radius:  16px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--surface); }
+
+  /* ── HERO BANNER ── */
+  .hero-section {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+    padding: 5rem 0 4.5rem;
+  }
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(230,57,70,.12) 0%, transparent 70%),
+      repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,.012) 40px, rgba(255,255,255,.012) 80px);
+  }
+  .hero-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .hero-copy { flex: 1; min-width: 260px; }
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 1.1rem;
+  }
+  .hero-title span { color: var(--accent); }
+  .hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,.55);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 400px;
+  }
+  .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-primary-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: var(--accent);
+    color: #fff;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s, transform .15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-primary-hero:hover { background: #c1121f; transform: translateY(-2px); color: #fff; }
+  .btn-ghost-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 24px;
+    background: rgba(255,255,255,.08);
+    color: rgba(255,255,255,.8);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background .2s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .btn-ghost-hero:hover { background: rgba(255,255,255,.15); color: #fff; }
+
+  /* Hero stats */
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    flex-shrink: 0;
+    padding: 2rem 2.5rem;
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: var(--radius);
+    backdrop-filter: blur(8px);
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .stat-label { font-size: 11px; color: rgba(255,255,255,.4); font-weight: 500; letter-spacing: .5px; }
+  .stat-sep { width: 1px; background: rgba(255,255,255,.1); align-self: stretch; }
+  @media (max-width: 640px) { .hero-stats { display: none; } }
+
+  /* ── TRUST STRIP ── */
+  .trust-strip {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: .8rem 0;
+  }
+  .trust-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .trust-item i { color: var(--accent); }
+
+  /* ── PAGE BODY ── */
+  .page-body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+  @media (max-width: 600px) { .page-body { padding: 2rem 1rem 4rem; } }
+
+  /* ── SECTION HEADER ── */
+  .sec-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 900;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sec-title-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .sec-sub { font-size: 13.5px; color: var(--muted); margin-top: 3px; }
+
+  /* ── CATEGORY GRID ── */
+  .cat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 1024px) { .cat-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px)  { .cat-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 400px)  { .cat-grid { grid-template-columns: 1fr; } }
+
+  /* ── CATEGORY CARD ── */
+  .cat-card {
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: box-shadow .25s, transform .25s;
+    position: relative;
+    group: true;
+  }
+  .cat-card:hover {
+    box-shadow: 0 16px 44px rgba(0,0,0,.11);
+    transform: translateY(-5px);
+  }
+
+  /* Image area */
+  .cat-img-wrap {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: var(--surface);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .cat-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .45s ease;
+  }
+  .cat-card:hover .cat-img-wrap img { transform: scale(1.08); }
+
+  /* Subtle overlay on hover */
+  .cat-img-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(13,13,13,0);
+    transition: background .3s;
+  }
+  .cat-card:hover .cat-img-wrap::after { background: rgba(13,13,13,.04); }
+
+  /* Arrow chip */
+  .cat-arrow {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    background: #fff;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    color: var(--muted);
+    z-index: 2;
+    transform: translateY(4px);
+    opacity: 0;
+    transition: opacity .25s, transform .25s, background .2s;
+  }
+  .cat-card:hover .cat-arrow {
+    opacity: 1;
+    transform: translateY(0);
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+
+  /* Card body */
+  .cat-body {
+    padding: 1.1rem 1.2rem 1.3rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: .4rem;
+  }
+  .cat-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .cat-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .cat-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: .5rem;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    transition: gap .2s;
+  }
+  .cat-card:hover .cat-cta { gap: 10px; }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 1rem;
+  }
+  .empty-state .icon { font-size: 52px; margin-bottom: 1rem; opacity: .3; }
+  .empty-state h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--dark);
+    margin-bottom: .5rem;
+  }
+  .empty-state p { font-size: 14px; color: var(--muted); }
 </style>
 {% endblock style %}
 
 {% block content %}
-<section class="container" style="margin-top:70px;">
-    <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-            <h1 class="fw-light">Bestsellers</h1>
-            <p class="lead text-muted">Our most popular product based on sales. Updated hourly</p>
-            <p>
-                <a class="btn btn-primary my-2" href="{% url 'login' %}">Already User</a>
-                <a class="btn btn-secondary my-2" href="{% url 'register' %}">Register</a>
-            </p>
-        </div>
+
+<!-- ── HERO ── -->
+<section class="hero-section">
+  <div class="hero-inner">
+
+    <div class="hero-copy">
+      <p class="hero-eyebrow">Best Sellers</p>
+      <h1 class="hero-title">
+        Shop What's<br><span>Trending Now</span>
+      </h1>
+      <p class="hero-sub">
+        Our most popular products based on sales — updated hourly. Find the perfect pick across every category.
+      </p>
+      <div class="hero-actions">
+        <a href="{% url 'login' %}" class="btn-primary-hero">
+          <i class="fa fa-sign-in"></i> Already a Member
+        </a>
+        <a href="{% url 'register' %}" class="btn-ghost-hero">
+          <i class="fa fa-user-plus"></i> Create Account
+        </a>
+      </div>
     </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <span class="stat-num">50K+</span>
+        <span class="stat-label">Products</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num">2M+</span>
+        <span class="stat-label">Customers</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat-item">
+        <span class="stat-num">4.8★</span>
+        <span class="stat-label">Rating</span>
+      </div>
+    </div>
+
+  </div>
 </section>
-<section class="bg-light py-4 my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h4 class="mb-3">Catagories</h4>
-                <hr style="border-color:#b8bfc2">
-                {% include 'inc/message.html' %}
-            </div>
-            <div class="container my-5">
-                <div class="row g-4">
-                    {% for item in catagory %}
 
-        <!-- Product Card -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm">
-
-                <img src="{{item.image.url}}"
-                     class="card-img-top img-fluid"
-                     alt="Product Image"
-                     style="height:200px; object-fit:contain;">
-
-                <div class="card-body d-flex flex-column">
-                    <h6 class="card-title fw-bold">
-                        {{ item.name}}
-                    </h6>
-                     <p class="card-text">{{item.description}}</p>
-                    <!-- <h5 class="text-success mb-3">
-                        ₹54,999
-                        <small class="text-muted text-decoration-line-through">
-                            ₹59,999
-                        </small>
-                    </h5> -->
-
-                    <a href="{% url 'collection' item.name %}" class="btn btn-primary mt-auto w-100">
-                        View Products
-                    </a>
-                </div>
-            </div>
-        </div>
-         {% endfor %}
-        <!-- Duplicate this card for more products -->
-
-    </div>
+<!-- ── TRUST STRIP ── -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><i class="fa fa-truck"></i> Free Delivery above ₹499</div>
+    <div class="trust-item"><i class="fa fa-shield"></i> Secure Payments</div>
+    <div class="trust-item"><i class="fa fa-undo"></i> 7-Day Returns</div>
+    <div class="trust-item"><i class="fa fa-headset"></i> 24/7 Support</div>
+  </div>
 </div>
-        </div>
+
+<!-- ── CATEGORIES ── -->
+<div class="page-body">
+
+  {% include 'inc/message.html' %}
+
+  <div class="sec-head">
+    <div>
+      <h2 class="sec-title">
+        <span class="sec-title-dot"></span>Shop by Category
+      </h2>
+      <p class="sec-sub">Explore our curated collections across every department</p>
     </div>
-</section>
+  </div>
+
+  <div class="cat-grid">
+    {% for item in catagory %}
+
+    <a href="{% url 'collection' item.name %}" class="cat-card">
+
+      <div class="cat-img-wrap">
+        <img src="{{ item.image.url }}" alt="{{ item.name }}">
+        <div class="cat-arrow">→</div>
+      </div>
+
+      <div class="cat-body">
+        <p class="cat-name">{{ item.name }}</p>
+        {% if item.description %}
+          <p class="cat-desc">{{ item.description }}</p>
+        {% endif %}
+        <span class="cat-cta">Browse Products →</span>
+      </div>
+
+    </a>
+
+    {% empty %}
+    <div class="empty-state">
+      <div class="icon">🗂️</div>
+      <h3>No categories yet</h3>
+      <p>Categories will appear here once they're added from the admin panel.</p>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
 {% endblock content %}

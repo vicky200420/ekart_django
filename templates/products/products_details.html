@@ -1,196 +1,473 @@
 {% extends 'layout/main.html' %}
 
-
-
-{% block title %}
-shopkart | online Shopping
-{% endblock title %}
+{% block title %}{{ products }} | EKART{% endblock title %}
 
 {% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-    .new_price{
-    font-weight:bold;
-    background-color: green;
-    color:white;
-    padding:2px;
-    border-radius: 5px;
-}
-    .old_price{
-        font-weight:bold;
-        color:red;
-    }
-    .pic-box{
-        position: relative;
-    }
-    .hot{
-        position: absolute;
-        width:50px;
-        border-radius:5px;
-        background-color: red;
-        top:0;
-        right:12px;
-        text-align: center;
-        color:white;
-    }
+  :root {
+    --ink: #0d0d0d;
+    --slate: #1c1c2e;
+    --accent: #e63946;
+    --gold: #f4a261;
+    --muted: #6b7280;
+    --surface: #f9fafb;
+    --card-bg: #ffffff;
+    --border: #e5e7eb;
+    --success: #10b981;
+    --radius: 16px;
+  }
 
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--ink);
+  }
+
+  /* ── BREADCRUMB ── */
+  .ekart-breadcrumb {
+    padding: 14px 0 0;
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .ekart-breadcrumb a { color: var(--muted); text-decoration: none; }
+  .ekart-breadcrumb a:hover { color: var(--accent); }
+  .ekart-breadcrumb span { margin: 0 6px; }
+
+  /* ── MAIN WRAPPER ── */
+  .pd-section {
+    padding: 30px 0 80px;
+  }
+
+  /* ── IMAGE PANEL ── */
+  .pd-image-panel {
+    position: relative;
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 32px;
+    box-shadow: 0 2px 20px rgba(0,0,0,.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+  }
+  .pd-image-panel img {
+    max-height: 360px;
+    width: 100%;
+    object-fit: contain;
+    transition: transform .4s ease;
+  }
+  .pd-image-panel:hover img { transform: scale(1.04); }
+
+  .badge-hot {
+    position: absolute;
+    top: 18px;
+    left: 18px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 50px;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { box-shadow: 0 0 0 0 rgba(230,57,70,.4); }
+    50%      { box-shadow: 0 0 0 8px rgba(230,57,70,0); }
+  }
+
+  /* ── INFO PANEL ── */
+  .pd-info-panel {
+    padding: 8px 0 0 24px;
+  }
+  @media (max-width: 767px) {
+    .pd-info-panel { padding: 24px 0 0; }
+  }
+
+  .pd-vendor {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  .pd-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 38px);
+    font-weight: 900;
+    line-height: 1.15;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+
+  .pd-description {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+    border-left: 3px solid var(--gold);
+    padding-left: 14px;
+  }
+
+  /* ── PRICING ── */
+  .pd-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .pd-offer-price {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--success);
+  }
+  .pd-offer-price small { font-size: 16px; font-weight: 500; }
+  .pd-original-price {
+    font-size: 18px;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .pd-discount-badge {
+    background: #fef3c7;
+    color: #b45309;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 50px;
+  }
+
+  /* ── DIVIDER ── */
+  .pd-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  /* ── QTY SELECTOR ── */
+  .pd-qty-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .qty-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: #f3f4f6;
+    border-radius: 12px;
+    width: fit-content;
+    overflow: hidden;
+    border: 1.5px solid var(--border);
+    margin-bottom: 24px;
+  }
+  .qty-btn {
+    width: 44px;
+    height: 44px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--slate);
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .qty-btn:hover { background: var(--border); }
+  .qty-input {
+    width: 54px;
+    height: 44px;
+    border: none;
+    background: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--ink);
+    outline: none;
+  }
+
+  /* ── ACTION BUTTONS ── */
+  .pd-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-cart {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px 28px;
+    background: var(--slate);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .25s, transform .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  .btn-cart:hover { background: var(--accent); transform: translateY(-2px); }
+  .btn-cart:active { transform: translateY(0); }
+
+  .btn-fav {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    background: #fff;
+    color: var(--accent);
+    font-size: 20px;
+    cursor: pointer;
+    transition: background .2s, transform .15s, border-color .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-fav:hover { background: var(--accent); color: #fff; border-color: var(--accent); transform: scale(1.1); }
+
+  .btn-outofstock {
+    flex: 1;
+    padding: 15px 28px;
+    background: #e5e7eb;
+    color: var(--muted);
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: not-allowed;
+  }
+
+  /* ── TRUST BADGES ── */
+  .trust-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .trust-item i { color: var(--success); font-size: 16px; }
+
+  /* ── ALERT TOAST ── */
+  .ekart-toast {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    background: var(--slate);
+    color: #fff;
+    padding: 14px 22px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    box-shadow: 0 8px 30px rgba(0,0,0,.2);
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all .35s cubic-bezier(.34,1.56,.64,1);
+    z-index: 9999;
+    max-width: 320px;
+  }
+  .ekart-toast.show { transform: translateY(0); opacity: 1; }
+  .ekart-toast.success { border-left: 4px solid var(--success); }
+  .ekart-toast.error   { border-left: 4px solid var(--accent); }
 </style>
 {% endblock style %}
 
 {% block content %}
 
-<section class="bg-light py-4 my-5" style="height:600px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h4 class="mb-3">{{products}} Details</h4>
-                <hr style="border-color:#b8bfc2;">
-                {% include 'inc/message.html' %}
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{% url 'collection' products.catagory.name  %}">Collection</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">{{products}}</li>
-                    </ol>
-                    </nav>
-            </div>
-            <div class="col-4 my-3 pic-box">
-                {% if products.trending %}
-                <div class="hot">Hot</div>
-                {% endif %}
-                    <img src="{{products.product_image.url}}" class="card-img-top img-fluid" alt="Product Image"style="height:200px; object-fit:contain;">
-            </div>
-            <div class="col-8 my-3">
-                <h5 class="text-success">{{products | upper}}</h5>
-                <P>{{products.vendor}}</P>
-                <P>{{products.description}}</P>
-                <h6 class="my-2 text-danger">Current Price : Rs. <s>{{products.original_price}}</s></h6>
-                <h5 class="my-2 text-primary">Offer Price : Rs.{{products.selling_price}}</h5>
-                <div class="my-3">
-                    {% if products.quantity > 0%}
-                    {% csrf_token %}
-                        <input type="hidden"  id="pid" value="{{products.id}}">
+<div class="container pd-section">
 
-                    <p>
-                        <div class="input-group" style="width:150px;">
-                            <button class="input-group-text bg-success text-light" id="btnminus"><i class="fa fa-minus"></i></button>
-                            <input type="text" name="qty" id="txtqty" value="1" class="form-control text-center">
-                            <button class="input-group-text bg-success text-light" id="btnplus"><i class="fa fa-plus"></i></button>
-                        </div>
-                    </p>
-                    <button class="btn btn-primary" id="btncard"><i class="fa fa-shopping-cart"></i>Add to Cart</button>
-                    {% else %}
-                    <button class="btn btn-secondary"><i class="fa fa-cart"></i>Out of Stock</button>
-                     {% endif %}
-                    <button class="btn btn-danger" id="btnFav"><i class="fa fa-heart"></i></button>
-                </div>
-            </div>
+  <!-- Breadcrumb -->
+  <nav class="ekart-breadcrumb mb-4">
+    <a href="{% url 'home' %}">Home</a>
+    <span>/</span>
+    <a href="{% url 'collection' products.catagory.name %}">{{ products.catagory.name }}</a>
+    <span>/</span>
+    <strong>{{ products }}</strong>
+  </nav>
+
+  {% include 'inc/message.html' %}
+
+  <div class="row g-4">
+
+    <!-- LEFT: Image -->
+    <div class="col-md-5">
+      <div class="pd-image-panel">
+        {% if products.trending %}
+          <span class="badge-hot">🔥 Hot</span>
+        {% endif %}
+        <img src="{{ products.product_image.url }}" alt="{{ products }}">
+      </div>
     </div>
+
+    <!-- RIGHT: Info -->
+    <div class="col-md-7">
+      <div class="pd-info-panel">
+
+        <p class="pd-vendor">{{ products.vendor }}</p>
+        <h1 class="pd-title">{{ products }}</h1>
+        <p class="pd-description">{{ products.description }}</p>
+
+        <!-- Pricing -->
+        <div class="pd-pricing">
+          <div class="pd-offer-price">
+            <small>₹</small>{{ products.selling_price }}
+          </div>
+          <div class="pd-original-price">₹{{ products.original_price }}</div>
+          {% if products.original_price and products.selling_price %}
+            <span class="pd-discount-badge">
+              {{ products.original_price | add:"-0" }}% OFF
+            </span>
+          {% endif %}
+        </div>
+
+        <hr class="pd-divider">
+
+        {% if products.quantity > 0 %}
+          {% csrf_token %}
+          <input type="hidden" id="pid" value="{{ products.id }}">
+
+          <!-- Quantity -->
+          <p class="pd-qty-label">Quantity</p>
+          <div class="qty-wrap">
+            <button class="qty-btn" id="btnminus">−</button>
+            <input type="text" class="qty-input" id="txtqty" name="qty" value="1">
+            <button class="qty-btn" id="btnplus">+</button>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="pd-actions">
+            <button class="btn-cart" id="btncard">
+              <i class="fa fa-shopping-cart"></i> Add to Cart
+            </button>
+            <button class="btn-fav" id="btnFav" title="Add to Favourites">
+              <i class="fa fa-heart"></i>
+            </button>
+          </div>
+
+        {% else %}
+          <div class="pd-actions">
+            <button class="btn-outofstock" disabled>Out of Stock</button>
+            <button class="btn-fav" id="btnFav" title="Add to Favourites">
+              <i class="fa fa-heart"></i>
+            </button>
+          </div>
+        {% endif %}
+
+        <!-- Trust Badges -->
+        <div class="trust-row">
+          <div class="trust-item"><i class="fa fa-shield"></i> Secure Payment</div>
+          <div class="trust-item"><i class="fa fa-truck"></i> Free Delivery</div>
+          <div class="trust-item"><i class="fa fa-undo"></i> Easy Returns</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 </div>
 
-        </div>
-    </div>
-</section>
+<!-- Toast Notification -->
+<div class="ekart-toast" id="ekartToast"></div>
+
 <script>
-    document.addEventListener("DOMContentLoaded",function(event){
-       const btnplus=document.getElementById("btnplus");
-       const btnminus=document.getElementById("btnminus");
-       const txtqty=document.getElementById("txtqty");
-       const pid=document.getElementById("pid");
-       const tkn = document.querySelector('[name=csrfmiddlewaretoken]').value;
-       const btncard=document.getElementById("btncard");
-       const btnFav=document.getElementById("btnFav")
+document.addEventListener("DOMContentLoaded", function () {
+  const btnplus  = document.getElementById("btnplus");
+  const btnminus = document.getElementById("btnminus");
+  const txtqty   = document.getElementById("txtqty");
+  const pid      = document.getElementById("pid");
+  const btncard  = document.getElementById("btncard");
+  const btnFav   = document.getElementById("btnFav");
+  const toastEl  = document.getElementById("ekartToast");
 
-       btnplus.addEventListener("click",function(){
-        let qty=parseInt(txtqty.value,10);
-        qty=isNaN(qty)?0:qty;
-        // console.log(qty);
-        if(qty<10){
-            qty++;
-            txtqty.value=qty;
-        }
+  const csrfEl = document.querySelector('[name=csrfmiddlewaretoken]');
+  const tkn = csrfEl ? csrfEl.value : '';
+
+  function showToast(msg, type = 'success') {
+    toastEl.textContent = msg;
+    toastEl.className = `ekart-toast ${type} show`;
+    setTimeout(() => { toastEl.className = 'ekart-toast'; }, 3000);
+  }
+
+  if (btnplus) {
+    btnplus.addEventListener("click", function () {
+      let qty = parseInt(txtqty.value, 10) || 0;
+      if (qty < 10) txtqty.value = qty + 1;
     });
+  }
 
-        btnminus.addEventListener("click",function(){
-        let qty=parseInt(txtqty.value,10);
-        qty=isNaN(qty)?0:qty;
-        if(qty>1){
-            qty--;
-            txtqty.value=qty;
-        }
-
-       });
-
-        btncard.addEventListener("click",function(){
-
-        let qty=parseInt(txtqty.value,10);
-        qty=isNaN(qty)?0:qty;
-        if(qty>0){
-            let postobj={
-                'product_qty':qty,
-                'pid':pid.value
-            }
-            // console.log(postobj);
-            fetch("/addtocard",{
-                method:'POST',
-                credentials:'same-origin',
-                headers:{
-                    'Accept':'application/json',
-                    "Content-Type": "application/json",
-                    'X-Requested-With':'XMLHttpRequest',
-                    'X-CSRFToken':tkn
-                },
-                body:JSON.stringify(postobj)
-            })
-            .then(response =>{
-                return response.json();
-            })
-            .then(data => {
-                // console.log(data);
-                alert(data['status']);
-            });
-        }
-        else{
-            alert("Please Enter the Quantity");
-        }
-
-       });
-       
-
-
-        btnFav.addEventListener("click",function(){
-
-
-
-            let postobj={
-                'pid':pid.value
-            }
-            // console.log(postobj);
-            fetch("/fav",{
-                method:'POST',
-                credentials:'same-origin',
-                headers:{
-                    'Accept':'application/json',
-                    "Content-Type": "application/json",
-                    'X-Requested-With':'XMLHttpRequest',
-                    'X-CSRFToken':tkn
-                },
-                body:JSON.stringify(postobj)
-            })
-            .then(response =>{
-                return response.json();
-            })
-            .then(data => {
-                // console.log(data);
-                alert(data['status']);
-            });
-
-       
-       });
-       
-
-
-
+  if (btnminus) {
+    btnminus.addEventListener("click", function () {
+      let qty = parseInt(txtqty.value, 10) || 0;
+      if (qty > 1) txtqty.value = qty - 1;
     });
+  }
+
+  if (btncard) {
+    btncard.addEventListener("click", function () {
+      let qty = parseInt(txtqty.value, 10) || 0;
+      if (qty < 1) { showToast("Please select a quantity", "error"); return; }
+      btncard.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Adding...';
+      fetch("/addtocard", {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-CSRFToken': tkn
+        },
+        body: JSON.stringify({ product_qty: qty, pid: pid.value })
+      })
+      .then(r => r.json())
+      .then(data => {
+        showToast(data['status'], 'success');
+        btncard.innerHTML = '<i class="fa fa-shopping-cart"></i> Add to Cart';
+      })
+      .catch(() => {
+        showToast("Something went wrong", "error");
+        btncard.innerHTML = '<i class="fa fa-shopping-cart"></i> Add to Cart';
+      });
+    });
+  }
+
+  if (btnFav) {
+    btnFav.addEventListener("click", function () {
+      fetch("/fav", {
+        method: 'POST',
+        credentials: 'same-origin',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+          'X-CSRFToken': tkn
+        },
+        body: JSON.stringify({ pid: pid ? pid.value : '' })
+      })
+      .then(r => r.json())
+      .then(data => {
+        showToast(data['status'], 'success');
+        btnFav.style.background = '#e63946';
+        btnFav.style.color = '#fff';
+      })
+      .catch(() => showToast("Something went wrong", "error"));
+    });
+  }
+});
 </script>
 
 {% endblock content %}

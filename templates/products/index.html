@@ -1,80 +1,398 @@
 {% extends 'layout/main.html' %}
 
-
-
-{% block title %}
-shopkart | online Shopping
-{% endblock title %}
+{% block title %}{{ catagory_name }} | EKART{% endblock title %}
 
 {% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-    .card{
-        width: 80%;
-    }
-    .new_price{
-    font-weight:bold;
-    background-color: green;
-    color:white;
-    padding:2px;
-    border-radius: 5px;
-}
-    .old_price{
-        font-weight:bold;
-        color:red;
-    }
+  :root {
+    --accent:   #e63946;
+    --dark:     #0d0d0d;
+    --slate:    #1c1c2e;
+    --success:  #10b981;
+    --muted:    #6b7280;
+    --border:   #e5e7eb;
+    --surface:  #f9fafb;
+    --card-bg:  #ffffff;
+    --radius:   14px;
+  }
 
+  body { font-family: 'DM Sans', sans-serif; background: var(--surface); }
+
+  /* ── PAGE HEADER ── */
+  .col-header {
+    background: var(--dark);
+    padding: 3rem 0 2.5rem;
+    margin-bottom: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .col-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,.015) 40px,
+      rgba(255,255,255,.015) 80px
+    );
+  }
+  .col-header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .col-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
+    margin-bottom: 1rem;
+  }
+  .col-breadcrumb a { color: rgba(255,255,255,.4); text-decoration: none; }
+  .col-breadcrumb a:hover { color: rgba(255,255,255,.8); }
+  .col-breadcrumb span { opacity: .5; }
+  .col-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 4vw, 46px);
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: .5rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .col-title-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+  .col-count {
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    font-weight: 400;
+  }
+
+  /* ── TOOLBAR ── */
+  .col-toolbar {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: .85rem 0;
+    position: sticky;
+    top: 64px;
+    z-index: 100;
+  }
+  .col-toolbar-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .filter-chips {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    padding: 5px 14px;
+    border-radius: 50px;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-size: 12.5px;
+    font-weight: 500;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .2s;
+  }
+  .chip:hover, .chip.active {
+    background: var(--dark);
+    border-color: var(--dark);
+    color: #fff;
+  }
+  .chip.accent { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .sort-select {
+    padding: 7px 12px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: transparent;
+    font-size: 12.5px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--muted);
+    outline: none;
+    cursor: pointer;
+  }
+
+  /* ── PRODUCT GRID ── */
+  .col-body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 4rem;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 1024px) { .product-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 720px)  { .product-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 420px)  { .product-grid { grid-template-columns: 1fr; } }
+
+  /* ── PRODUCT CARD ── */
+  .p-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow .25s, transform .25s;
+    position: relative;
+  }
+  .p-card:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,.1);
+    transform: translateY(-4px);
+  }
+
+  /* Wishlist button */
+  .p-card-fav {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(255,255,255,.9);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #d1d5db;
+    cursor: pointer;
+    z-index: 2;
+    transition: color .2s, background .2s;
+    backdrop-filter: blur(4px);
+  }
+  .p-card-fav:hover { color: var(--accent); background: #fff; }
+
+  /* Hot/trending badge */
+  .p-card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 50px;
+    z-index: 2;
+  }
+
+  /* Image area */
+  .p-card-img {
+    aspect-ratio: 1 / 1;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 1.25rem;
+  }
+  .p-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .4s ease;
+  }
+  .p-card:hover .p-card-img img { transform: scale(1.07); }
+
+  /* Card body */
+  .p-card-body {
+    padding: 1rem 1.1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: .4rem;
+  }
+  .p-card-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .p-card-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    margin-top: .15rem;
+  }
+  .p-card-offer {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--success);
+  }
+  .p-card-orig {
+    font-size: 12.5px;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .p-card-discount {
+    font-size: 10.5px;
+    font-weight: 700;
+    background: #ecfdf5;
+    color: #065f46;
+    padding: 2px 7px;
+    border-radius: 50px;
+  }
+
+  /* View Details button */
+  .p-card-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: auto;
+    background: var(--dark);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .p-card-btn:hover { background: var(--accent); color: #fff; }
+
+  /* ── EMPTY STATE ── */
+  .empty-state {
+    text-align: center;
+    padding: 5rem 1rem;
+    grid-column: 1 / -1;
+  }
+  .empty-state .icon {
+    font-size: 52px;
+    margin-bottom: 1rem;
+    opacity: .3;
+  }
+  .empty-state h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: var(--dark);
+    margin-bottom: .5rem;
+  }
+  .empty-state p { font-size: 14px; color: var(--muted); }
+
+  /* ── MESSAGES ── */
+  {% include 'inc/message.html' %}
 </style>
 {% endblock style %}
 
 {% block content %}
 
-<section class="bg-light py-4 my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h4 class="mb-3">{{catagory_name}} Products</h4>
-                <hr style="border-color:#b8bfc2;">
-                {% include 'inc/message.html' %}
-            </div>
-                  <div class="container my-5">
-                <div class="row g-4">
-                    {% for item in products %}
-
-        <!-- Product Card -->
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm">
-
-                <img src="{{item.product_image.url}}"
-                     class="card-img-top img-fluid"
-                     alt="Product Image"
-                     style="height:200px; object-fit: contain;">
-
-                <div class="card-body d-flex flex-column">
-                    <h6 class="card-title fw-bold">
-                        {{ item.name}}
-                    </h6>
-                     <!-- <p class="card-text">{{item.description}}</p> -->
-                    <h5 class="text-success mb-3">
-                        RS.{{item.selling_price | stringformat:'d'}}
-                        <small class="text-muted text-decoration-line-through">
-                            Rs.{{item.original_price | stringformat:'d'}}
-                        </small>
-                    </h5>
-
-                    <a href="{% url 'product_details' catagory_name item.name %}" class="btn btn-primary mt-auto w-100">
-                        View Details
-                    </a>
-                </div>
-            </div>
-        </div>
-         {% endfor %}
-        <!-- Duplicate this card for more products -->
-
-    </div>
+<!-- Page Header -->
+<div class="col-header">
+  <div class="col-header-inner">
+    <nav class="col-breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span>/</span>
+      <strong style="color:rgba(255,255,255,.7);">{{ catagory_name }}</strong>
+    </nav>
+    <h1 class="col-title">
+      <span class="col-title-dot"></span>
+      {{ catagory_name }}
+      <span class="col-count">({{ products|length }} items)</span>
+    </h1>
+  </div>
 </div>
 
-        </div>
+<!-- Toolbar -->
+<div class="col-toolbar">
+  <div class="col-toolbar-inner">
+    <div class="filter-chips">
+      <button class="chip active">All</button>
+      <button class="chip">In Stock</button>
+      <button class="chip accent">🔥 Trending</button>
+      <button class="chip">Best Price</button>
     </div>
-</section>
+    <select class="sort-select">
+      <option>Sort: Featured</option>
+      <option>Price: Low to High</option>
+      <option>Price: High to Low</option>
+      <option>Newest First</option>
+    </select>
+  </div>
+</div>
+
+<!-- Messages -->
+<div style="max-width:1280px;margin:1rem auto;padding:0 2rem;">
+  {% include 'inc/message.html' %}
+</div>
+
+<!-- Product Grid -->
+<div class="col-body">
+  <div class="product-grid">
+
+    {% for item in products %}
+    <div class="p-card">
+
+      {% if item.trending %}
+        <span class="p-card-badge">Hot</span>
+      {% endif %}
+
+      <button class="p-card-fav" title="Add to Wishlist">&#9829;</button>
+
+      <div class="p-card-img">
+        <img src="{{ item.product_image.url }}" alt="{{ item.name }}">
+      </div>
+
+      <div class="p-card-body">
+        <p class="p-card-name">{{ item.name }}</p>
+
+        <div class="p-card-pricing">
+          <span class="p-card-offer">₹{{ item.selling_price|stringformat:'d' }}</span>
+          {% if item.original_price %}
+            <span class="p-card-orig">₹{{ item.original_price|stringformat:'d' }}</span>
+          {% endif %}
+        </div>
+
+        <a href="{% url 'product_details' catagory_name item.name %}" class="p-card-btn">
+          View Details →
+        </a>
+      </div>
+
+    </div>
+    {% empty %}
+    <div class="empty-state">
+      <div class="icon">🛍️</div>
+      <h3>No products found</h3>
+      <p>There are no products in this category yet. Check back soon!</p>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
 
 {% endblock content %}

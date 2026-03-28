@@ -1,37 +1,522 @@
 {% extends 'layout/main.html' %}
 
-{% block title %}
-Register | shopkart
-{% endblock title %}
+{% block title %}Sign In | EKART{% endblock title %}
+
+{% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent:  #e63946;
+    --dark:    #0d0d0d;
+    --slate:   #1c1c2e;
+    --success: #10b981;
+    --muted:   #6b7280;
+    --border:  #e5e7eb;
+    --surface: #f9fafb;
+    --radius:  14px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--surface); min-height: 100vh; }
+
+  /* ── SPLIT LAYOUT ── */
+  .auth-wrap {
+    min-height: calc(100vh - 64px);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  @media (max-width: 860px) { .auth-wrap { grid-template-columns: 1fr; } }
+
+  /* ── LEFT: BRAND PANEL ── */
+  .auth-brand {
+    background: var(--dark);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3.5rem;
+  }
+  @media (max-width: 860px) { .auth-brand { display: none; } }
+
+  .auth-brand::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 70% 70% at 70% 20%, rgba(230,57,70,.16) 0%, transparent 65%),
+      repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,.014) 40px, rgba(255,255,255,.014) 80px);
+  }
+  .brand-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .ring-1 { width: 420px; height: 420px; bottom: -100px; right: -120px; }
+  .ring-2 { width: 260px; height: 260px; bottom: -30px; right: -30px; }
+  .ring-3 { width: 300px; height: 300px; top: -60px; left: -80px; }
+
+  .brand-content { position: relative; z-index: 1; }
+  .brand-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 3rem;
+    text-decoration: none;
+  }
+  .brand-logo-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); }
+
+  .brand-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.12;
+    margin-bottom: 1rem;
+  }
+  .brand-headline span { color: var(--accent); }
+
+  .brand-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,.5);
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    max-width: 340px;
+  }
+
+  /* Recent order preview card */
+  .order-preview {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    backdrop-filter: blur(8px);
+    margin-bottom: 2.5rem;
+  }
+  .op-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.35);
+    margin-bottom: 1rem;
+  }
+  .op-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .op-row:last-child { margin-bottom: 0; }
+  .op-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .op-dot.green  { background: var(--success); }
+  .op-dot.amber  { background: #f59e0b; }
+  .op-text { font-size: 13px; color: rgba(255,255,255,.65); flex: 1; }
+  .op-amount { font-size: 13px; font-weight: 700; color: #fff; }
+
+  .brand-stats {
+    display: flex;
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,.08);
+  }
+  .bstat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 900;
+    color: #fff;
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .bstat-label { font-size: 11.5px; color: rgba(255,255,255,.35); }
+
+  /* ── RIGHT: FORM PANEL ── */
+  .auth-form-panel {
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3.5rem 3rem;
+  }
+  @media (max-width: 600px) { .auth-form-panel { padding: 2.5rem 1.5rem; } }
+
+  .form-eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: .75rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-eyebrow::before {
+    content: '';
+    width: 18px;
+    height: 2px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 3.5vw, 38px);
+    font-weight: 900;
+    color: var(--dark);
+    margin-bottom: .5rem;
+    line-height: 1.1;
+  }
+  .form-subtitle {
+    font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 2.25rem;
+  }
+  .form-subtitle a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .form-subtitle a:hover { color: #c1121f; }
+
+  /* Field groups */
+  .field-group { margin-bottom: 1.25rem; }
+  .field-label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 7px;
+    letter-spacing: .2px;
+  }
+  .field-input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    background: var(--surface);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-size: 14px;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    outline: none;
+    transition: border-color .2s, box-shadow .2s, background .2s;
+  }
+  .field-input:focus {
+    border-color: var(--slate);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(28,28,46,.08);
+  }
+  .field-input::placeholder { color: #c4c9d4; }
+
+  /* Password wrapper */
+  .pw-wrap { position: relative; }
+  .pw-wrap .field-input { padding-right: 46px; }
+  .pw-toggle {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--muted);
+    font-size: 14px;
+    padding: 0;
+    transition: color .18s;
+  }
+  .pw-toggle:hover { color: var(--dark); }
+
+  /* Remember + Forgot row */
+  .form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    gap: .5rem;
+    flex-wrap: wrap;
+  }
+  .remember-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .remember-row input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: var(--slate);
+    cursor: pointer;
+  }
+  .forgot-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .forgot-link:hover { color: #c1121f; }
+
+  /* Submit button */
+  .btn-login {
+    width: 100%;
+    height: 50px;
+    background: var(--slate);
+    color: #fff;
+    border: none;
+    border-radius: 11px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background .2s, transform .15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    margin-bottom: 1.5rem;
+  }
+  .btn-login:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-login:active { transform: translateY(0); }
+
+  /* Divider */
+  .form-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.5rem;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .form-divider::before,
+  .form-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Quick-access chips */
+  .quick-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 1.5rem;
+  }
+  .quick-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all .18s;
+    background: var(--surface);
+  }
+  .quick-link:hover {
+    border-color: var(--slate);
+    color: var(--dark);
+    background: #fff;
+  }
+  .quick-link i { font-size: 14px; }
+
+  /* Trust row */
+  .form-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    margin-top: .5rem;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+  .trust-item i { color: var(--success); }
+
+  /* Error messages */
+  .alert-error {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 11px 14px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+  }
+  .alert-error i { margin-top: 1px; flex-shrink: 0; }
+</style>
+{% endblock style %}
 
 {% block content %}
-<div class="container" style="margin-top:70px;">
-    <div class="row">
-        <div class="col-12">
-            <h2>User Login Page</h2>
-            <hr style="border-color:#b8bfc2;">
-            {% include 'inc/message.html' %}
-        </div>
-    </div>
-    <section class="py-4 my-5">
-        <div class="container">
-            <div class="col-6">
-                <form method="post" action="">
-                    {% csrf_token %}
-                    <div class="mb-4">
-                        <label for="" class="form-label">User Name</label>
-                        <input type="text" name="username" id="username" class="form-control" placeholder="Enter username">
-                    </div>
-                    <div class="mb-4">
-                        <label for="" class="form-label">Password</label>
-                        <input type="password" name="password" id="password" class="form-control" placeholder="Enter passowrd">                        
-                    </div>
-                      <button type="submit" class="btn btn-primary">Register</button>
+<div class="auth-wrap">
 
-                </form>
-                
-            </div>
+  <!-- ── LEFT: Brand Panel ── -->
+  <div class="auth-brand">
+    <div class="brand-ring ring-1"></div>
+    <div class="brand-ring ring-2"></div>
+    <div class="brand-ring ring-3"></div>
+
+    <div class="brand-content">
+      <a href="{% url 'home' %}" class="brand-logo">
+        <span class="brand-logo-dot"></span>EKART
+      </a>
+
+      <h2 class="brand-headline">
+        Welcome<br>Back to <span>EKART</span>
+      </h2>
+      <p class="brand-sub">
+        Sign in to access your orders, wishlist, saved addresses, and exclusive member offers waiting for you.
+      </p>
+
+      <!-- Order preview card -->
+      <div class="order-preview">
+        <p class="op-label">Your Recent Orders</p>
+        <div class="op-row">
+          <span class="op-dot green"></span>
+          <span class="op-text">Order #1038 · Delivered</span>
+          <span class="op-amount">₹94,990</span>
         </div>
-    </section>
+        <div class="op-row">
+          <span class="op-dot amber"></span>
+          <span class="op-text">Order #1042 · Pending</span>
+          <span class="op-amount">₹24,990</span>
+        </div>
+      </div>
+
+      <div class="brand-stats">
+        <div>
+          <span class="bstat-num">50K+</span>
+          <span class="bstat-label">Products</span>
+        </div>
+        <div>
+          <span class="bstat-num">2M+</span>
+          <span class="bstat-label">Members</span>
+        </div>
+        <div>
+          <span class="bstat-num">4.8★</span>
+          <span class="bstat-label">Rating</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── RIGHT: Form Panel ── -->
+  <div class="auth-form-panel">
+
+    <p class="form-eyebrow">Member Access</p>
+    <h1 class="form-title">Sign In</h1>
+    <p class="form-subtitle">
+      New here?
+      <a href="{% url 'register' %}">Create a free account →</a>
+    </p>
+
+    {% include 'inc/message.html' %}
+
+    <form method="post" action="">
+      {% csrf_token %}
+
+      <!-- Username -->
+      <div class="field-group">
+        <label class="field-label" for="username">Username</label>
+        <input
+          class="field-input"
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Enter your username"
+          autocomplete="username"
+          required>
+      </div>
+
+      <!-- Password -->
+      <div class="field-group">
+        <label class="field-label" for="password">Password</label>
+        <div class="pw-wrap">
+          <input
+            class="field-input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required>
+          <button type="button" class="pw-toggle" id="pwToggle" aria-label="Show password">
+            <i class="fa fa-eye" id="pwEye"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Remember / Forgot -->
+      <div class="form-options">
+        <label class="remember-row">
+          <input type="checkbox" name="remember"> Remember me
+        </label>
+        <a href="#" class="forgot-link">Forgot password?</a>
+      </div>
+
+      <button type="submit" class="btn-login">
+        <i class="fa fa-sign-in"></i> Sign In
+      </button>
+
+    </form>
+
+    <div class="form-divider">or quick access</div>
+
+    <div class="quick-links">
+      <a href="{% url 'collection' %}" class="quick-link">
+        <i class="fa fa-cubes"></i> Browse Shop
+      </a>
+      <a href="{% url 'register' %}" class="quick-link">
+        <i class="fa fa-user-plus"></i> Register
+      </a>
+      <a href="{% url 'home' %}" class="quick-link">
+        <i class="fa fa-home"></i> Home
+      </a>
+      <a href="{% url 'cart' %}" class="quick-link">
+        <i class="fa fa-shopping-cart"></i> View Cart
+      </a>
+    </div>
+
+    <div class="form-trust">
+      <div class="trust-item"><i class="fa fa-lock"></i> Secure Login</div>
+      <div class="trust-item"><i class="fa fa-shield"></i> Data Protected</div>
+      <div class="trust-item"><i class="fa fa-check-circle"></i> SSL Encrypted</div>
+    </div>
+
+  </div>
 </div>
+
+<script>
+  const toggle = document.getElementById('pwToggle');
+  const eye    = document.getElementById('pwEye');
+  const pwInput = document.getElementById('password');
+  if (toggle && pwInput) {
+    toggle.addEventListener('click', () => {
+      const show = pwInput.type === 'password';
+      pwInput.type = show ? 'text' : 'password';
+      eye.className = show ? 'fa fa-eye-slash' : 'fa fa-eye';
+    });
+  }
+</script>
+
 {% endblock content %}

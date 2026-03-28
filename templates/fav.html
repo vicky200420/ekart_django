@@ -1,57 +1,380 @@
 {% extends 'layout/main.html' %}
 
-{% block title %}
-Register | shopkart
-{% endblock title %}
+{% block title %}Favourites | EKART{% endblock title %}
 
 {% block style %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-    .card{
-        width:80%;
-    }
-    .card img{
-        height:200px;
-    }
+  :root {
+    --accent:  #e63946;
+    --dark:    #0d0d0d;
+    --slate:   #1c1c2e;
+    --success: #10b981;
+    --muted:   #6b7280;
+    --border:  #e5e7eb;
+    --surface: #f9fafb;
+    --radius:  14px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--surface); }
+
+  /* ── PAGE HEADER ── */
+  .fav-header {
+    background: var(--dark);
+    padding: 2.5rem 0 2.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .fav-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 50% 100% at 95% 50%, rgba(230,57,70,.1) 0%, transparent 70%),
+      repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,.012) 40px, rgba(255,255,255,.012) 80px);
+  }
+  .fav-header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .fav-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: rgba(255,255,255,.38);
+    margin-bottom: .85rem;
+  }
+  .fav-breadcrumb a { color: rgba(255,255,255,.38); text-decoration: none; }
+  .fav-breadcrumb a:hover { color: rgba(255,255,255,.7); }
+  .fav-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 900;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .fav-title-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .fav-subtitle { font-size: 13.5px; color: rgba(255,255,255,.4); margin-top: 6px; }
+
+  /* ── BODY ── */
+  .fav-body {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 5rem;
+  }
+  @media (max-width: 600px) { .fav-body { padding: 1.5rem 1rem 4rem; } }
+
+  /* ── PRODUCT GRID ── */
+  .fav-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+  @media (max-width: 1024px) { .fav-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px)  { .fav-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 400px)  { .fav-grid { grid-template-columns: 1fr; } }
+
+  /* ── FAV CARD ── */
+  .fav-card {
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: box-shadow .25s, transform .25s;
+  }
+  .fav-card:hover {
+    box-shadow: 0 14px 40px rgba(0,0,0,.1);
+    transform: translateY(-4px);
+  }
+
+  /* Heart badge */
+  .fav-heart {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    background: #fef2f2;
+    border: 1px solid #fecaca;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: var(--accent);
+    z-index: 2;
+  }
+
+  /* Image area */
+  .fav-img {
+    aspect-ratio: 1 / 1;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    overflow: hidden;
+  }
+  .fav-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transition: transform .4s ease;
+  }
+  .fav-card:hover .fav-img img { transform: scale(1.07); }
+
+  /* Card body */
+  .fav-card-body {
+    padding: 1rem 1.1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: .4rem;
+  }
+  .fav-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--dark);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .fav-price {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--success);
+    margin-top: .1rem;
+  }
+  .fav-price small { font-size: 13px; font-weight: 400; }
+
+  /* Action buttons */
+  .fav-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: auto;
+  }
+  .btn-view {
+    flex: 1;
+    padding: 9px 12px;
+    background: var(--slate);
+    color: #fff;
+    border: none;
+    border-radius: 9px;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: background .2s;
+    cursor: pointer;
+  }
+  .btn-view:hover { background: var(--accent); color: #fff; }
+
+  .btn-remove {
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    text-decoration: none;
+    transition: background .18s, color .18s, border-color .18s;
+    flex-shrink: 0;
+  }
+  .btn-remove:hover {
+    background: #fef2f2;
+    color: var(--accent);
+    border-color: #fecaca;
+  }
+
+  /* ── SECTION HEADER ── */
+  .sec-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 1.75rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 900;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sec-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .sec-count {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+  }
+  .sec-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .sec-link:hover { color: #c1121f; }
+
+  /* ── EMPTY STATE ── */
+  .fav-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 5rem 2rem;
+    background: #fff;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+  }
+  .fav-empty .icon {
+    font-size: 56px;
+    margin-bottom: 1.1rem;
+    opacity: .2;
+    display: block;
+  }
+  .fav-empty h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: .5rem;
+  }
+  .fav-empty p { font-size: 14px; color: var(--muted); margin-bottom: 1.75rem; }
+  .btn-browse {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: var(--slate);
+    color: #fff;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .btn-browse:hover { background: var(--accent); color: #fff; }
+
+  /* ── TOAST ── */
+  .ekart-toast {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--slate);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 11px;
+    font-size: 13.5px;
+    font-weight: 500;
+    box-shadow: 0 8px 28px rgba(0,0,0,.18);
+    transform: translateY(80px);
+    opacity: 0;
+    transition: all .35s cubic-bezier(.34,1.56,.64,1);
+    z-index: 9999;
+    border-left: 3px solid var(--accent);
+  }
+  .ekart-toast.show { transform: translateY(0); opacity: 1; }
 </style>
 {% endblock style %}
 
 {% block content %}
-<section class="container" style="margin-top:70px;">
 
-</section>
-<section class="bg-light py-4 my-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h4 class="mb-3">Cart items</h4>
-                <hr style="border-color:#b8bfc2">
-
-            </div>
-            <div class="container my-5">
-                <div class="row g-4">
-
-        <table class="table table-bordered">
-            <tr>
-                <th>Image</th>
-                <th>Product Name</th>
-                <th>unit</th>
-                <th>Remove</th>
-            </tr>
-        {% for item in fav %}
-        <tr>
-            <td><img src="{{item.product.product_image.url}}" height="75px" alt="{{item.product.name}}"></td>
-            <td>{{item.product.name}}</td>
-            <td>{{item.product.selling_price | stringformat:'d'}}</td>
-            <td><a href="{% url 'delete_fav' item.id %}" onclick="return confirm('Are you Sure? to Remove')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>Remove</a></td>
-        </tr>
-         {% endfor %}
-
-        </table>
-    </div>
+<!-- Header -->
+<div class="fav-header">
+  <div class="fav-header-inner">
+    <nav class="fav-breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span>/</span>
+      <strong style="color:rgba(255,255,255,.65);">Favourites</strong>
+    </nav>
+    <h1 class="fav-title">
+      <span class="fav-title-dot"></span>My Favourites
+    </h1>
+    <p class="fav-subtitle">Your saved items — all in one place</p>
+  </div>
 </div>
-        </div>
-    </div>
-</section>
 
+<!-- Body -->
+<div class="fav-body">
+
+  {% include 'inc/message.html' %}
+
+  <div class="sec-head">
+    <h2 class="sec-title">
+      <span class="sec-dot"></span>
+      Saved Items
+      <span class="sec-count">({{ fav|length }})</span>
+    </h2>
+    <a href="{% url 'collection' %}" class="sec-link">Continue Shopping →</a>
+  </div>
+
+  <div class="fav-grid">
+
+    {% for item in fav %}
+    <div class="fav-card" id="fav-{{ item.id }}">
+
+      <!-- Heart indicator -->
+      <div class="fav-heart">&#9829;</div>
+
+      <!-- Product image -->
+      <div class="fav-img">
+        <img src="{{ item.product.product_image.url }}" alt="{{ item.product.name }}">
+      </div>
+
+      <!-- Card body -->
+      <div class="fav-card-body">
+        <p class="fav-name">{{ item.product.name }}</p>
+        <p class="fav-price"><small>₹</small>{{ item.product.selling_price|stringformat:'d' }}</p>
+
+        <div class="fav-actions">
+          <a href="{% url 'product_details' item.product.catagory.name item.product.name %}"
+             class="btn-view">
+            <i class="fa fa-eye"></i> View
+          </a>
+          <a href="{% url 'delete_fav' item.id %}"
+             onclick="return confirm('Remove from favourites?')"
+             class="btn-remove"
+             title="Remove from favourites">
+            <i class="fa fa-trash"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    {% empty %}
+    <div class="fav-empty">
+      <span class="icon">&#9829;</span>
+      <h3>No favourites yet</h3>
+      <p>You haven't saved any items. Browse our collection and tap the heart icon to save products here.</p>
+      <a href="{% url 'collection' %}" class="btn-browse">Browse Collection →</a>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="ekart-toast" id="ekartToast"></div>
 
 {% endblock content %}

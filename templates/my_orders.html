@@ -1,143 +1,498 @@
 {% extends 'layout/main.html' %}
 
-
-
-{% block title %}
-shopkart | online Shopping
-{% endblock title %}
+{% block title %}My Orders | EKART{% endblock title %}
 
 {% block style %}
- <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            margin: 0;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent:   #e63946;
+    --dark:     #0d0d0d;
+    --slate:    #1c1c2e;
+    --success:  #10b981;
+    --warning:  #f59e0b;
+    --muted:    #6b7280;
+    --border:   #e5e7eb;
+    --surface:  #f9fafb;
+    --radius:   14px;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: var(--surface); }
 
-        h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            color: #333;
-            margin-top:6rem;
-        }
+  /* ── PAGE HEADER ── */
+  .orders-header {
+    background: var(--dark);
+    padding: 2.5rem 0 2.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .orders-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 55% 90% at 90% 50%, rgba(230,57,70,.1) 0%, transparent 65%),
+      repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,.013) 40px, rgba(255,255,255,.013) 80px);
+  }
+  .orders-header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .orders-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 12px;
+    color: rgba(255,255,255,.38);
+    margin-bottom: .85rem;
+  }
+  .orders-breadcrumb a { color: rgba(255,255,255,.38); text-decoration: none; }
+  .orders-breadcrumb a:hover { color: rgba(255,255,255,.7); }
+  .orders-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 900;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .orders-title-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .orders-subtitle { font-size: 13.5px; color: rgba(255,255,255,.4); margin-top: 6px; }
 
-        .orders-container {
-            max-width: 900px;
-            margin: auto;
-        }
+  /* ── BODY ── */
+  .orders-body {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 5rem;
+  }
+  @media (max-width: 600px) { .orders-body { padding: 1.5rem 1rem 4rem; } }
 
-        .order-card {
-            background: #fff;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
+  /* ── SUMMARY STATS ── */
+  .orders-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  @media (max-width: 500px) { .orders-stats { grid-template-columns: 1fr; } }
 
-        .order-card:hover {
-            transform: scale(1.02);
-        }
+  .stat-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .stat-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .stat-icon.all    { background: #eff6ff; color: #3b82f6; }
+  .stat-icon.pend   { background: #fffbeb; color: var(--warning); }
+  .stat-icon.done   { background: #ecfdf5; color: var(--success); }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--dark);
+    line-height: 1;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .stat-label { font-size: 11.5px; color: var(--muted); font-weight: 500; }
 
-        .order-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
+  /* ── SECTION HEADER ── */
+  .sec-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .sec-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 24px);
+    font-weight: 900;
+    color: var(--dark);
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+  .sec-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .sec-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .sec-link:hover { color: #c1121f; }
 
-        .order-id {
-            font-weight: bold;
-            color: #007bff;
-        }
+  /* ── ORDER CARD ── */
+  .order-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    margin-bottom: 1.1rem;
+    overflow: hidden;
+    transition: box-shadow .22s, transform .22s;
+  }
+  .order-card:hover {
+    box-shadow: 0 10px 32px rgba(0,0,0,.09);
+    transform: translateY(-2px);
+  }
 
-        .order-status {
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 14px;
-            color: white;
-        }
+  /* Card top row */
+  .order-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.1rem 1.4rem;
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .order-id-wrap { display: flex; align-items: center; gap: 10px; }
+  .order-num {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--dark);
+  }
+  .order-date {
+    font-size: 12px;
+    color: var(--muted);
+  }
 
-        .pending {
-            background: orange;
-        }
+  /* Status pill */
+  .status-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .3px;
+  }
+  .status-pill::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+  .status-pill.pending  { background: #fffbeb; color: #92400e; }
+  .status-pill.pending::before  { background: var(--warning); }
+  .status-pill.delivered { background: #ecfdf5; color: #065f46; }
+  .status-pill.delivered::before { background: var(--success); }
+  .status-pill.cancelled { background: #fef2f2; color: #991b1b; }
+  .status-pill.cancelled::before { background: var(--accent); }
+  .status-pill.processing { background: #eff6ff; color: #1e40af; }
+  .status-pill.processing::before { background: #3b82f6; }
 
-        .delivered {
-            background: green;
-        }
+  /* Card body */
+  .order-body {
+    padding: 1.1rem 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
 
-        .order-details {
-            margin-top: 10px;
-            color: #555;
-        }
+  /* Progress timeline */
+  .order-timeline {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex: 1;
+    min-width: 200px;
+  }
+  .tl-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    flex: 1;
+    position: relative;
+  }
+  .tl-step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    top: 13px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: var(--border);
+    z-index: 0;
+  }
+  .tl-step.done:not(:last-child)::after { background: var(--success); }
+  .tl-dot {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--muted);
+    z-index: 1;
+    position: relative;
+    transition: all .2s;
+  }
+  .tl-step.done .tl-dot {
+    background: var(--success);
+    border-color: var(--success);
+    color: #fff;
+  }
+  .tl-step.active .tl-dot {
+    background: var(--warning);
+    border-color: var(--warning);
+    color: #fff;
+  }
+  .tl-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--muted);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .tl-step.done .tl-label,
+  .tl-step.active .tl-label { color: var(--dark); }
 
-        .order-details p {
-            margin: 5px 0;
-        }
+  /* Amount */
+  .order-amount {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .amount-label { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 2px; }
+  .amount-value { font-size: 22px; font-weight: 700; color: var(--success); font-family: 'Playfair Display', serif; }
 
-        .no-orders {
-            text-align: center;
-            color: #888;
-            margin-top: 50px;
-        }
-        .cancel-btn {
-            background: red;
-            color: white;
-            border: none;
-            padding: 5px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+  /* Cancel form */
+  .order-footer {
+    padding: .75rem 1.4rem;
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .order-footer-note {
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-cancel {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 16px;
+    background: transparent;
+    border: 1px solid #fecaca;
+    color: var(--accent);
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    font-family: 'DM Sans', sans-serif;
+    cursor: pointer;
+    transition: background .18s, border-color .18s;
+  }
+  .btn-cancel:hover {
+    background: #fef2f2;
+    border-color: var(--accent);
+  }
 
-        .cancel-btn:hover {
-            background: darkred;
-        }
-
-    </style>
+  /* ── EMPTY STATE ── */
+  .orders-empty {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 5rem 2rem;
+    text-align: center;
+  }
+  .orders-empty .icon { font-size: 56px; margin-bottom: 1rem; opacity: .2; display: block; }
+  .orders-empty h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: var(--dark);
+    margin-bottom: .5rem;
+  }
+  .orders-empty p { font-size: 14px; color: var(--muted); margin-bottom: 1.75rem; }
+  .btn-shop {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: var(--slate);
+    color: #fff;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background .2s;
+  }
+  .btn-shop:hover { background: var(--accent); color: #fff; }
+</style>
 {% endblock style %}
 
 {% block content %}
 
-<h2>🛒 My Orders</h2>
-
-<div class="orders-container">
-    {% for order in orders %}
-    <div class="order-card">
-
-        <div class="order-header">
-            <div class="order-id">
-                Order #{{ order.id }}
-            </div>
-
-            <div class="order-status {% if order.status == 'Delivered' %}delivered{% else %}pending{% endif %}">
-                {{ order.status }}
-            </div>
-        </div>
-
-        <div class="order-details">
-            <p><strong>Total Amount:</strong> ₹{{ order.total_price }}</p>
-            <p><strong>Order Date:</strong> {{ order.created_at|date:"d M Y, h:i A" }}</p>
-        </div>
-        {% if order.status == "Pending" %}
-        <form method="POST" action="{% url 'cancel_order' order.id %}">
-            {% csrf_token %}
-            <button class="cancel-btn">Cancel Order</button>
-        </form>
-        {% endif %}
-
-    </div>
-    {% empty %}
-    <div class="no-orders">
-        <h3>No orders yet 😔</h3>
-        <p>Start shopping and place your first order!</p>
-    </div>
-    {% endfor %}
-
-
+<!-- Header -->
+<div class="orders-header">
+  <div class="orders-header-inner">
+    <nav class="orders-breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span>/</span>
+      <strong style="color:rgba(255,255,255,.65);">My Orders</strong>
+    </nav>
+    <h1 class="orders-title">
+      <span class="orders-title-dot"></span>My Orders
+    </h1>
+    <p class="orders-subtitle">Track and manage all your purchases</p>
+  </div>
 </div>
 
+<!-- Body -->
+<div class="orders-body">
 
+  {% include 'inc/message.html' %}
 
+  {% if orders %}
 
+  <!-- Stats row -->
+  <div class="orders-stats">
+    <div class="stat-card">
+      <div class="stat-icon all"><i class="fa fa-box"></i></div>
+      <div>
+        <span class="stat-num">{{ orders|length }}</span>
+        <span class="stat-label">Total Orders</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon pend"><i class="fa fa-clock"></i></div>
+      <div>
+        <span class="stat-num">
+          {% with pending_count=0 %}
+            {% for o in orders %}{% if o.status == "Pending" %}{% with pending_count=pending_count|add:1 %}{% endwith %}{% endif %}{% endfor %}
+            {{ orders|length }}
+          {% endwith %}
+        </span>
+        <span class="stat-label">Pending</span>
+      </div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon done"><i class="fa fa-check-circle"></i></div>
+      <div>
+        <span class="stat-num">—</span>
+        <span class="stat-label">Delivered</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section header -->
+  <div class="sec-head">
+    <h2 class="sec-title"><span class="sec-dot"></span>Order History</h2>
+    <a href="{% url 'collection' %}" class="sec-link">+ Place New Order</a>
+  </div>
+
+  <!-- Order cards -->
+  {% for order in orders %}
+  <div class="order-card">
+
+    <!-- Top row -->
+    <div class="order-top">
+      <div class="order-id-wrap">
+        <p class="order-num">Order #{{ order.id }}</p>
+        <span class="order-date">{{ order.created_at|date:"d M Y, h:i A" }}</span>
+      </div>
+      <span class="status-pill
+        {% if order.status == 'Delivered' %}delivered
+        {% elif order.status == 'Cancelled' %}cancelled
+        {% elif order.status == 'Processing' %}processing
+        {% else %}pending{% endif %}">
+        {{ order.status }}
+      </span>
+    </div>
+
+    <!-- Body: timeline + amount -->
+    <div class="order-body">
+
+      <!-- Progress Timeline -->
+      <div class="order-timeline">
+        <div class="tl-step done">
+          <div class="tl-dot"><i class="fa fa-check"></i></div>
+          <span class="tl-label">Placed</span>
+        </div>
+        <div class="tl-step {% if order.status == 'Processing' or order.status == 'Delivered' %}done{% elif order.status == 'Pending' %}active{% endif %}">
+          <div class="tl-dot"><i class="fa fa-cog"></i></div>
+          <span class="tl-label">Processing</span>
+        </div>
+        <div class="tl-step {% if order.status == 'Delivered' %}done{% endif %}">
+          <div class="tl-dot"><i class="fa fa-truck"></i></div>
+          <span class="tl-label">Shipped</span>
+        </div>
+        <div class="tl-step {% if order.status == 'Delivered' %}done{% endif %}">
+          <div class="tl-dot"><i class="fa fa-home"></i></div>
+          <span class="tl-label">Delivered</span>
+        </div>
+      </div>
+
+      <!-- Amount -->
+      <div class="order-amount">
+        <p class="amount-label">Total</p>
+        <p class="amount-value">₹{{ order.total_price }}</p>
+      </div>
+
+    </div>
+
+    <!-- Cancel footer -->
+    {% if order.status == "Pending" %}
+    <div class="order-footer">
+      <span class="order-footer-note">
+        <i class="fa fa-info-circle"></i>
+        You can cancel this order before it is processed.
+      </span>
+      <form method="POST" action="{% url 'cancel_order' order.id %}">
+        {% csrf_token %}
+        <button class="btn-cancel" type="submit"
+                onclick="return confirm('Cancel order #{{ order.id }}?')">
+          <i class="fa fa-times"></i> Cancel Order
+        </button>
+      </form>
+    </div>
+    {% endif %}
+
+  </div>
+  {% endfor %}
+
+  {% else %}
+
+  <!-- Empty state -->
+  <div class="orders-empty">
+    <span class="icon">📦</span>
+    <h3>No orders yet</h3>
+    <p>You haven't placed any orders. Start shopping and your orders will appear here.</p>
+    <a href="{% url 'collection' %}" class="btn-shop">Start Shopping →</a>
+  </div>
+
+  {% endif %}
+
+</div>
 
 {% endblock content %}
